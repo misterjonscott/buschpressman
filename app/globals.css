@@ -7,6 +7,7 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
+  --link-color: oklch(0.52 0.2225 263.83);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
@@ -77,21 +78,28 @@
     @apply border-[var(--border)];
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground; /* Default body font */
+    font-family: var(--font-lato); /* Apply Lato font */
+  }
+  h1, h2, h3 {
+    font-family: var(--font-bebas-neue); /* Apply Bebas Neue font */
+  }
+  .pacifico-font {
+    font-family: var(--pacifico-font); /* Custom class for Pacifico font */
   }
   *:focus {
     @apply outline-none ring-2 ring-[var(--ring)] ring-opacity-50;
   }
 
   /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-    /* Firefox */
-    input[type=number] {
-      -moz-appearance: textfield;
-    }
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
 }

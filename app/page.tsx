@@ -1,10 +1,30 @@
-import ColorPaletteGenerator from '@/components/ColorPaletteGenerator'; // Adjust import path if needed
+"use client";
 
-export default function Home() {
+import Header from '@/components/header';
+import Hero from '@/components/hero';
+import About from '@/sections/About';
+import Projects from '@/sections/Projects';
+import Skills from '@/sections/Skills';
+import Recommendations from '@/sections/Recommendations';
+import Contact from '@/sections/Contact';
+import Footer from '@/components/footer';
+import { useState } from 'react';
+
+const Home = () => {
+  const [currentSection, setCurrentSection] = useState<string>('home');
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-4xl font-bold mb-8">Shadcn UI Showcase</h1>
-      <ColorPaletteGenerator />
+    <div style={{ position: 'relative' }}>
+      <Header currentSection={currentSection} setCurrentSection={setCurrentSection} />
+      <Hero />
+      <About />
+      <Projects />
+      <Skills />
+      <Recommendations />
+      <Contact />
+      <Footer />
     </div>
   );
-}
+};
+
+export default Home;

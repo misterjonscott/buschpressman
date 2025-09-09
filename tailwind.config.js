@@ -4,10 +4,19 @@ module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './sections/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
+      // Add custom breakpoints here
+      screens: {
+        sm: '640px',   // Small devices (landscape phones)
+        md: '768px',   // Medium devices (tablets)
+        lg: '1024px',  // Large devices (desktops)
+        xl: '1280px',  // Extra large devices (large desktops)
+        '2xl': '1536px' // 2xl devices (larger desktops)
+      },
       borderColor: {
         DEFAULT: 'var(--border)',
       },
@@ -33,9 +42,9 @@ module.exports = {
           DEFAULT: 'var(--accent)',
           foreground: 'var(--accent-foreground)',
         },
+        link: 'var(--link-color)',
       },
     },
   },
   plugins: [],
 }
-
