@@ -40,6 +40,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) =>
     switch (currentSection) {
       case "home": return "Welcome to My Portfolio";
       case "about": return "About Me";
+      case "snapshots": return "Snapshots";
       case "projects": return "My Projects";
       case "skills": return "Skills & Expertise";
       case "recommendations": return "What Others Say";
@@ -50,42 +51,42 @@ const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) =>
 
   return (
     <header className="fixed top-0 w-full bg-background shadow-md z-10">
-      <div className="flex items-center justify-between mx-auto px-4 py-2">
-        {currentSection === "home" || currentSection === "about" ? (
+      <div className="flex items-center justify-between mx-auto px-4 py-2 h-12"> {/* h-12 sets height to 50px */}
+        {currentSection === "home" ? (
           <Image 
-            src="/images/jon-scott-portfolio-logo.png" 
-            alt="Jon Scott UX Portfolio Logo" 
-            style={{ width: "auto", height: "auto" }}
-            width={150}
-            height={50}
+        src="/images/jon-scott-portfolio-logo.png" 
+        alt="Jon Scott UX Portfolio Logo" 
+        style={{ width: "auto", height: "auto" }}
+        width={267}
+        height={47}
           />
         ) : (
           <h1 className="pacifico-font text-xl md:text-2xl">
-            {renderTitle()}
+        {renderTitle()}
           </h1>
         )}
         <div className="block md:hidden">
           <button 
-            onClick={() => setIsOpen(!isOpen)} 
-            aria-label="Toggle Menu"
-            className="p-2 rounded-md hover:bg-muted"
+        onClick={() => setIsOpen(!isOpen)} 
+        aria-label="Toggle Menu"
+        className="p-2 rounded-md hover:bg-muted"
           >
-            <Menu size={24} />
+        <Menu size={24} />
           </button>
         </div>
         <div className="hidden md:flex gap-4">
-          {["home", "about", "projects", "skills", "recommendations", "contact"].map((section) => (
-            <button
-              key={section}
-              onClick={() => handleNavigation(section)}
-              className={`px-3 py-1.5 rounded-md ${
-                currentSection === section 
-                  ? "bg-primary text-primary-foreground" 
-                  : "hover:bg-muted"
-              }`}
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
-            </button>
+          {["home", "about", "snapshots", "projects", "skills", "recommendations", "contact"].map((section) => (
+        <button
+          key={section}
+          onClick={() => handleNavigation(section)}
+          className={`px-3 py-1.5 rounded-md ${
+            currentSection === section 
+          ? "bg-primary text-primary-foreground" 
+          : "hover:bg-muted"
+          }`}
+        >
+          {section.charAt(0).toUpperCase() + section.slice(1)}
+        </button>
           ))}
         </div>
       </div>
@@ -102,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) =>
             <X size={24} />
           </button>
           <div className="mt-4 flex flex-col items-end"> {/* Stack buttons */}
-            {["home", "about", "projects", "skills", "recommendations", "contact"].map((section) => (
+            {["home", "about", "snapshots", "projects", "skills", "recommendations", "contact"].map((section) => (
               <button
                 key={section}
                 onClick={() => handleNavigation(section)}

@@ -62,7 +62,7 @@ const Recommendations = () => {
   return (
     <div
       ref={sectionRef}
-      className="section-container relative bg-blue min-h-screen p-5 flex flex-col justify-between"
+      className="section-container relative bg-blue min-h-screen p-5 flex flex-col justify-center bg-slate-100"
     >
       <div 
         className={`

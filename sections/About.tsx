@@ -42,9 +42,8 @@ const About = () => {
 
   return (
     <div 
-    id="about" 
       ref={sectionRef}
-      className="section-container relative min-h-screen py-[10em] md:my-[10rem] " 
+      className="section-container relative min-h-screen flex items-center justify-center flex-col" 
     >
       <div className="flex flex-row items-center text-center gap-4 pb-8 max-w-[60%] mx-auto">
         <Image

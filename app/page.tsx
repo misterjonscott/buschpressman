@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Header from '@/components/header';
 import Hero from '@/components/hero';
 import About from '@/sections/About';
+import Snapshots from '@/sections/Snapshots';
 import Projects from '@/sections/Projects';
 import Skills from '@/sections/Skills';
 import Recommendations from '@/sections/Recommendations';
@@ -11,20 +12,18 @@ import Contact from '@/sections/Contact';
 import Footer from '@/components/footer';
 import { ScrollProvider, useScrollContext } from '@/contexts/ScrollContext';
 
+const SECTION_IDS = ["home", "about", "snapshots", "projects", "skills", "recommendations", "contact"];
+
 const HomeContent = () => {
   const { activeSection } = useScrollContext();
   const [currentSection, setCurrentSection] = useState('home');
   
-  // This useEffect ensures the header highlights the correct section on initial load or scroll
-  // and keeps the state in sync with the scroll position
   useEffect(() => {
     if (activeSection) {
       setCurrentSection(activeSection);
     }
   }, [activeSection]);
   
-
-
   return (
     <div style={{ position: 'relative' }}>
       <Header currentSection={currentSection} setCurrentSection={setCurrentSection} />
@@ -33,6 +32,9 @@ const HomeContent = () => {
       </section>
       <section id="about" className="relative">
         <About />
+      </section>
+      <section id="snapshots" className="relative">
+        <Snapshots />
       </section>
       <section id="projects" className="relative">
         <Projects />
@@ -52,10 +54,8 @@ const HomeContent = () => {
 };
 
 const Home = () => {
-  const sectionIds = ["home", "about", "projects", "skills", "recommendations", "contact"];
-  
   return (
-    <ScrollProvider sectionIds={sectionIds}>
+    <ScrollProvider sectionIds={SECTION_IDS}>
       <HomeContent />
     </ScrollProvider>
   );

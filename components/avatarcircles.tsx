@@ -16,17 +16,17 @@ interface Circle {
 
 const allPossibleCirclesData = [
   { id: 0, color: 'bg-pink-400', size: 'w-10 h-10', position: '-top-8 -left-6', radius: 20, speed: 2 },
-  { id: 1, color: 'bg-cyan-400', size: 'w-12 h-12', position: '-top-4 -right-8', radius: 30, speed: 4 },
-  { id: 2, color: 'bg-yellow-400', size: 'w-14 h-14', position: '-bottom-6 -left-4', radius: 40, speed: 6 },
-  { id: 3, color: 'bg-purple-400', size: 'w-16 h-16', position: '-bottom-8 -right-6', radius: 50, speed: 8 },
-  { id: 4, color: 'bg-orange-400', size: 'w-18 h-18', position: 'top-2 -left-12', radius: 60, speed: 10 },
-  { id: 5, color: 'bg-green-400', size: 'w-20 h-20', position: 'bottom-4 -right-10', radius: 60, speed: 12 },
-  { id: 6, color: 'bg-red-400', size: 'w-24 h-24', position: '-top-12 right-4', radius: 60, speed: 14 },
-  { id: 7, color: 'bg-blue-400', size: 'w-28 h-28', position: 'top-8 -left-8', radius: 60, speed: 16 },
-  { id: 8, color: 'bg-indigo-400', size: 'w-12 h-12', position: '-top-6 right-2', radius: 50, speed: 18 },
-  { id: 9, color: 'bg-teal-400', size: 'w-14 h-14', position: 'bottom-2 -left-10', radius: 60, speed: 20 },
-  { id: 10, color: 'bg-lime-400', size: 'w-16 h-16', position: '-bottom-4 right-8', radius: 30, speed: 22 },
-  { id: 11, color: 'bg-fuchsia-400', size: 'w-18 h-18', position: 'top-6 -right-4', radius: 40, speed: 24 },
+  { id: 1, color: 'bg-cyan-400', size: 'w-12 h-12', position: '-top-4 -right-8', radius: 20, speed: 4 },
+  { id: 2, color: 'bg-yellow-400', size: 'w-14 h-14', position: '-bottom-6 -left-4', radius: 20, speed: 6 },
+  { id: 3, color: 'bg-purple-400', size: 'w-16 h-16', position: '-bottom-8 -right-6', radius: 20, speed: 8 },
+  { id: 4, color: 'bg-orange-400', size: 'w-18 h-18', position: 'top-2 -left-12', radius: 20, speed: 10 },
+  { id: 5, color: 'bg-green-400', size: 'w-20 h-20', position: 'bottom-4 -right-10', radius: 20, speed: 12 },
+  { id: 6, color: 'bg-red-400', size: 'w-24 h-24', position: '-top-12 right-4', radius: 20, speed: 14 },
+  { id: 7, color: 'bg-blue-400', size: 'w-28 h-28', position: 'top-8 -left-8', radius: 20, speed: 16 },
+  { id: 8, color: 'bg-indigo-400', size: 'w-12 h-12', position: '-top-6 right-2', radius: 20, speed: 18 },
+  { id: 9, color: 'bg-teal-400', size: 'w-14 h-14', position: 'bottom-2 -left-10', radius: 20, speed: 20 },
+  { id: 10, color: 'bg-lime-400', size: 'w-16 h-16', position: '-bottom-4 right-8', radius: 20, speed: 22 },
+  { id: 11, color: 'bg-fuchsia-400', size: 'w-18 h-18', position: 'top-6 -right-4', radius: 20, speed: 24 },
 ];
 
 interface AvatarCirclesProps {

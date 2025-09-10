@@ -191,7 +191,7 @@ interface ContactProps { }
 const Contact: React.FC<ContactProps> = () => {
     return (
         <div
-            className="min-h-screen max-h-screen flex"
+            className="min-h-screen max-h-screen flex items-center justify-center"
         >
             <div className="w-full">
                 <h2 className="mx-auto mb-8 text-center text-3xl pacifico-font md:mb-16 md:text-6xl">

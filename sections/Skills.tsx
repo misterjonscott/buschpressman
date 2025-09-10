@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { motion, useTransform } from "framer-motion";
@@ -51,62 +51,66 @@ const Skills: React.FC = () => {
     return cleanup;
   }, []);
 
+  // Optimized transforms with smoother curves and smaller ranges
   const translateXTop = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ['-100vw', '0vw', '100vw']
+    ['-50vw', '0vw', '50vw'] // Reduced range for better performance
   );
 
   const translateXBottom = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ['100vw', '0vw', '-100vw']
+    ['50vw', '0vw', '-50vw'] // Reduced range for better performance
   );
 
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.5, 1],
-    [0.5, 1, 0.5]
+    [0, 0.4, 0.5, 0.6, 1],
+    [0, 0.8, 1, 0.8, 0] // Smoother fade curve
   );
   
   const frameOpacity = useTransform(
     scrollYProgress,
-    [0.3, 0.5, 0.7],
+    [0.25, 0.5, 0.75],
     [0, 1, 0]
   );
 
   const frameScale = useTransform(
     scrollYProgress,
-    [0.4, 0.5, 0.6],
-    [0.9, 1, 0.9]
+    [0.35, 0.5, 0.65],
+    [0.95, 1, 0.95] // Less dramatic scaling
   );
 
-  // NEW: Transform for the "Hover to learn more" text
+  // Pre-compute text opacity transform to avoid inline useTransform
   const textOpacity = useTransform(
     scrollYProgress,
-    [0.48, 0.5, 0.52],
+    [0.45, 0.5, 0.55],
     [0, 1, 0]
   );
   
-  const handleMouseEnter = (item: Item) => {
+  const handleMouseEnter = useCallback((item: Item) => {
     if (debounceTimeoutRef.current) {
       clearTimeout(debounceTimeoutRef.current);
+      debounceTimeoutRef.current = null;
     }
     setTooltipContent(item.text);
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     debounceTimeoutRef.current = window.setTimeout(() => {
       setTooltipContent(null);
+      debounceTimeoutRef.current = null;
     }, 50);
-  };
+  }, []);
 
-  const handleMouseMove = (event: React.MouseEvent) => {
+  const handleMouseMove = useCallback((event: React.MouseEvent) => {
+    // Update mouse position immediately for tooltips
     setMousePosition({
       x: event.clientX,
       y: event.clientY,
     });
-  };
+  }, []);
 
   return (
     <section 
@@ -117,18 +121,16 @@ const Skills: React.FC = () => {
     >
       {/* TODO: The box is shifting side to side */}
       <motion.div
-        style={{ opacity: frameOpacity, scale: frameScale }}
-        className="absolute inset-0 m-auto w-[1000px] h-[400px] border-4 border-blue-400 rounded-lg bg-blue-400/10 backdrop-blur-sm z-0 flex items-center justify-center"
+        style={{ 
+          opacity: frameOpacity, 
+          scale: frameScale,
+          willChange: 'opacity, transform'
+        }}
+        className="absolute inset-0 m-auto w-[1000px] h-[400px] border-4 border-blue-400 rounded-lg bg-blue-400/10 z-0 flex items-center justify-center"
       >
         {/* TODO: The text is missing on mobile */}
         <motion.p
-          style={{
-            opacity: useTransform(
-              scrollYProgress,
-              [0.45, 0.5, 0.55], // Expanded range for visibility
-              [0, 1, 0]
-            ),
-          }}
+          style={{ opacity: textOpacity }}
           className="text-black font-bold tracking-widest text-center pacifico-font text-2xl md:text-6xl"
         >
           Hover to learn more
@@ -137,7 +139,11 @@ const Skills: React.FC = () => {
       
       <div className="absolute w-full h-[100vh] flex flex-col items-center justify-center">
         <motion.div 
-          style={{ translateX: translateXTop, opacity }} 
+          style={{ 
+            translateX: translateXTop, 
+            opacity,
+            willChange: 'transform, opacity'
+          }} 
           className="w-full flex justify-center gap-16 relative top-[-60px]"
         >
           {topGroup.map((item) => (
@@ -159,7 +165,11 @@ const Skills: React.FC = () => {
         </motion.div>
 
         <motion.div 
-          style={{ translateX: translateXBottom, opacity }} 
+          style={{ 
+            translateX: translateXBottom, 
+            opacity,
+            willChange: 'transform, opacity'
+          }} 
           className="w-full flex justify-center gap-16 relative top-[60px]"
         >
           {bottomGroup.map((item) => (
