@@ -57,6 +57,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                         type="text"
                         aria-label="Name"
                         className="w-full"
+                        autoComplete="name"
                         required
                     />
                 </FormField>
@@ -74,6 +75,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                         type="email"
                         aria-label="Email Address"
                         className="w-full"
+                        autoComplete="email"
                         required
                     />
                 </FormField>
@@ -85,10 +87,11 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                     errorMessage={<ValidationError prefix="Inquiry Type" field="inquiryType" errors={state.errors} />}
                     hasError={hasError('inquiryType')}
                 >
-                  <Select name="inquiryType" required>
+                  <Select name='inquiryTypeSelect' required>
                     <SelectTrigger
-                      aria-label="Inquiry Type"
-                      className="w-full"
+                        id="inquiryType"
+                        aria-label="Inquiry Type"
+                        className="w-full"
                     >
                         <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
@@ -112,16 +115,31 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                         name="message"
                         aria-label="Message"
                         className="w-full"
+                        autoComplete="off"
                         required
                     />
                 </FormField>
 
                 <FormField label="Phone Number (optional)" fieldName="phone">
-                    <Input id="phone" name="phone" type="tel" aria-label="Phone Number" className="w-full" />
+                    <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        aria-label="Phone Number"
+                        className="w-full"
+                        autoComplete="tel"
+                    />
                 </FormField>
 
                 <FormField label="Company (optional)" fieldName="company">
-                    <Input id="company" name="company" type="text" aria-label="Company" className="w-full" />
+                    <Input
+                        id="company"
+                        name="company"
+                        type="text"
+                        aria-label="Company"
+                        className="w-full"
+                        autoComplete="organization"
+                    />
                 </FormField>
 
                 <Button
@@ -172,10 +190,8 @@ interface ContactProps { }
 
 const Contact: React.FC<ContactProps> = () => {
     return (
-        <section
-            id="contact"
-            aria-label="Contact section"
-            className="section-container min-h-screen flex py-[10em]"
+        <div
+            className="min-h-screen max-h-screen flex"
         >
             <div className="w-full">
                 <h2 className="mx-auto mb-8 text-center text-3xl pacifico-font md:mb-16 md:text-6xl">
@@ -188,7 +204,7 @@ const Contact: React.FC<ContactProps> = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 

@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div
       id="home"
-      className="section-container relative h-screen bg-[url('/images/hero-bg.webp')] bg-cover bg-center flex items-center justify-center text-white text-center p-5 overflow-hidden"
+      className="section-container relative min-h-screen bg-[url('/images/hero-bg.webp')] bg-cover bg-center flex items-center justify-center text-white text-center p-5 overflow-hidden"
     >
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-1 space-y-4">

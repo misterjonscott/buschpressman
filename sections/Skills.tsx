@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
+import { useScrollContext } from '@/contexts/ScrollContext';
 
 interface Item {
   id: number;
@@ -32,24 +33,23 @@ const Skills: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLDivElement>(null);
   const debounceTimeoutRef = useRef<number | null>(null);
+  const { registerSection, unregisterSection, getSectionProgress } = useScrollContext();
+  const scrollYProgress = getSectionProgress('skills');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setTooltipContent(null);
-    };
+    registerSection('skills', sectionRef);
+    return () => unregisterSection('skills');
+  }, [registerSection, unregisterSection]);
 
-    window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    // Hide tooltip on scroll - no need for separate scroll listener
+    const handleScroll = () => setTooltipContent(null);
     
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    // Use the existing scroll context instead of adding another listener
+    const cleanup = () => setTooltipContent(null);
+    
+    return cleanup;
   }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
 
   const translateXTop = useTransform(
     scrollYProgress,
@@ -112,7 +112,7 @@ const Skills: React.FC = () => {
     <section 
       id="skills" 
       ref={sectionRef} 
-      className="section-container flex items-center justify-center min-h-[150vh] relative overflow-hidden"
+      className="section-container flex items-center justify-center min-h-screen relative overflow-hidden"
       onMouseMove={handleMouseMove}
     >
       {/* TODO: The box is shifting side to side */}

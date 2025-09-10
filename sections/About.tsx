@@ -1,9 +1,10 @@
 'use client';
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { Brush, Code, UserRound } from "lucide-react"; 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useLayoutEffect } from "react";
+import { useScrollContext } from '@/contexts/ScrollContext';
 
 const features = [
   {
@@ -30,19 +31,20 @@ const features = [
 ];
 
 const About = () => {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const { registerSection, unregisterSection, getSectionProgress } = useScrollContext();
+  const scrollYProgress = getSectionProgress('about');
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  useLayoutEffect(() => {
+    registerSection('about', sectionRef);
+    return () => unregisterSection('about');
+  }, [registerSection, unregisterSection]);
 
   return (
-    <section 
-      id="about" 
+    <div 
+    id="about" 
       ref={sectionRef}
-      className="section-container py-[10em] md:my-[10rem]" 
-      aria-labelledby="about-heading"
+      className="section-container relative min-h-screen py-[10em] md:my-[10rem] " 
     >
       <div className="flex flex-row items-center text-center gap-4 pb-8 max-w-[60%] mx-auto">
         <Image
@@ -85,7 +87,7 @@ const About = () => {
           })}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

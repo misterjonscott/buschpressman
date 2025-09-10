@@ -4,17 +4,19 @@ import { Button } from "@/components/ui/button";
 import AvatarCircles from "@/components/avatarcircles";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
-import { useScroll } from "framer-motion";
+import { useScrollContext } from '@/contexts/ScrollContext';
 
 const Recommendations = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const { registerSection, unregisterSection, getSectionProgress } = useScrollContext();
+  const scrollYProgress = getSectionProgress('recommendations');
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  useEffect(() => {
+    registerSection('recommendations', sectionRef);
+    return () => unregisterSection('recommendations');
+  }, [registerSection, unregisterSection]);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -59,9 +61,8 @@ const Recommendations = () => {
 
   return (
     <div
-      id="recommendations"
       ref={sectionRef}
-      className="section-container bg-blue min-h-screen p-5 flex flex-col justify-between"
+      className="section-container relative bg-blue min-h-screen p-5 flex flex-col justify-between"
     >
       <div 
         className={`
@@ -96,7 +97,7 @@ const Recommendations = () => {
           </Card>
         ) : (
           recommendations.map((rec, index) => (
-            <Card key={index} className="flex-1 relative mt-16 border-3 border-white">
+            <Card key={index} className="flex-1 relative border-3 border-white">
               <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
                 <AvatarCircles 
                   imageUrl={rec.imageUrl}
