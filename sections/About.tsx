@@ -1,10 +1,9 @@
 'use client';
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 import { Brush, Code, UserRound } from "lucide-react"; 
 import Image from "next/image";
-import { useRef, useLayoutEffect } from "react";
-import { useScrollContext } from '@/contexts/ScrollContext';
+import { useRef } from "react";
 
 const features = [
   {
@@ -32,17 +31,17 @@ const features = [
 
 const About = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  const { registerSection, unregisterSection, getSectionProgress } = useScrollContext();
-  const scrollYProgress = getSectionProgress('about');
-
-  useLayoutEffect(() => {
-    registerSection('about', sectionRef);
-    return () => unregisterSection('about');
-  }, [registerSection, unregisterSection]);
+  
+  // Use Framer Motion's useScroll hook directly on the section's ref
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
 
   return (
     <div 
       ref={sectionRef}
+      id="about" // Add ID for navigation
       className="section-container relative min-h-screen flex items-center justify-center flex-col" 
     >
       <div className="flex flex-row items-center text-center gap-4 pb-8 max-w-[60%] mx-auto">
@@ -61,6 +60,8 @@ const About = () => {
         <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-start justify-center">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
+            
+            // Use useTransform hooks locally for each feature
             const iconScale = useTransform(scrollYProgress, feature.inputRange, [1, 2, 1]);
             const circleScale = useTransform(scrollYProgress, feature.inputRange, [1, 1.2, 1]);
             const circleOpacity = useTransform(scrollYProgress, feature.inputRange, [0, 1, 0]);

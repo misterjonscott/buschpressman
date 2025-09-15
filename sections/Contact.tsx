@@ -25,25 +25,28 @@ const ContactForm: React.FC<ContactFormProps> = () => {
     const [state, handleSubmit] = useForm('mpwqlzvq');
     const hasError = (fieldName: string) => useFieldError(state, fieldName);
 
-    if (state.succeeded) {
-        return (
-            <div className="mt-4 flex h-full flex-col items-center justify-center">
-                <div className="flex items-center justify-center">
-                    <CheckCircle className="h-16 w-16 text-green-500" aria-hidden="true" />
-                </div>
-                <div className="mt-4 text-xl font-medium text-green-600">
-                    Thanks for reaching out!
-                </div>
-                <p className="mt-2 text-center text-gray-600">
-                    I'll get back to you as soon as possible.
-                </p>
-            </div>
-        );
-    }
-
     return (
         <Card className="w-full max-w-[500px] border-0 bg-white p-6 shadow-lg rounded-lg dark:bg-slate-800">
-            <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
+            {/* Render both success message and form, but conditionally hide one */}
+            <div className={state.succeeded ? 'block' : 'hidden'}>
+                <div className="mt-4 flex h-full flex-col items-center justify-center">
+                    <div className="flex items-center justify-center">
+                        <CheckCircle className="h-16 w-16 text-green-500" aria-hidden="true" />
+                    </div>
+                    <div className="mt-4 text-xl font-medium text-green-600">
+                        Thanks for reaching out!
+                    </div>
+                    <p className="mt-2 text-center text-gray-600">
+                        I'll get back to you as soon as possible.
+                    </p>
+                </div>
+            </div>
+
+            <form
+                onSubmit={handleSubmit}
+                className={`space-y-6 ${state.succeeded ? 'hidden' : 'block'}`}
+                aria-label="Contact form"
+            >
                 <FormField
                     label="Name"
                     fieldName="name"
@@ -87,20 +90,20 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                     errorMessage={<ValidationError prefix="Inquiry Type" field="inquiryType" errors={state.errors} />}
                     hasError={hasError('inquiryType')}
                 >
-                  <Select name='inquiryTypeSelect' required>
-                    <SelectTrigger
-                        id="inquiryType"
-                        aria-label="Inquiry Type"
-                        className="w-full"
-                    >
-                        <SelectValue placeholder="Select an option" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="general">General Inquiry</SelectItem>
-                      <SelectItem value="project">Project Proposal</SelectItem>
-                      <SelectItem value="support">Support Request</SelectItem>
-                    </SelectContent>
-                  </Select>
+                    <Select name="inquiryTypeSelect" required>
+                        <SelectTrigger
+                            id="inquiryType"
+                            aria-label="Inquiry Type"
+                            className="w-full"
+                        >
+                            <SelectValue placeholder="Select an option" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="general">General Inquiry</SelectItem>
+                            <SelectItem value="project">Project Proposal</SelectItem>
+                            <SelectItem value="support">Support Request</SelectItem>
+                        </SelectContent>
+                    </Select>
                 </FormField>
 
                 <FormField

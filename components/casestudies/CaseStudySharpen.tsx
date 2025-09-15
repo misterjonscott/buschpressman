@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 // Custom hook for intersection observer
 const useInViewAnimation = (threshold = 0.2) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -34,12 +34,10 @@ const useInViewAnimation = (threshold = 0.2) => {
 };
 
 const CaseStudySharpen: React.FC = () => {
-  const [refDataManager, dataManagerIsInView] = useInViewAnimation();
-  const [refAccountManager, accountManagerIsInView] = useInViewAnimation();
-  const [refAccountImpersonation, accountImpersonationIsInView] =
-    useInViewAnimation();
-  const [refUsersAndRoles, usersAndRolesIsInView] = useInViewAnimation();
-  const [refSharing, sharingIsInView] = useInViewAnimation();
+  const [refRequirementsGathering, requirementsGatheringIsInView] = useInViewAnimation();
+  const [refDefiningTheFlow, definingTheFlowIsInView] = useInViewAnimation();
+  const [refReportingMadeSimple, reportingMadeSimpleIsInView] = useInViewAnimation();
+  const [refWaveformAnalytics, waveformAnalyticsIsInView] = useInViewAnimation();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -81,9 +79,9 @@ const CaseStudySharpen: React.FC = () => {
               <p className="text-muted-foreground leading-relaxed">This is a depiction of the database fields that we're able to use, when the target group has been selected.  To choose the group we're reporting on, we can divide the groups by purpose, to make the selection more direct.</p>
             </div>
             <motion.div
-              ref={refDataManager}
+              ref={refRequirementsGathering}
               initial={{ opacity: 0 }}
-              animate={dataManagerIsInView ? { opacity: 1 } : {}}
+              animate={requirementsGatheringIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
@@ -112,9 +110,9 @@ const CaseStudySharpen: React.FC = () => {
                   </div>
             </div>
             <motion.div
-              ref={refDataManager}
+              ref={refDefiningTheFlow}
               initial={{ opacity: 0 }}
-              animate={dataManagerIsInView ? { opacity: 1 } : {}}
+              animate={definingTheFlowIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
@@ -137,9 +135,9 @@ const CaseStudySharpen: React.FC = () => {
               <p className="text-muted-foreground leading-relaxed">While the Report Builder displays recently created reports on the left side of the screen, the report viewer follows suit with the same placement, but adding sort functionality to help find the report you need.</p>
             </div>
             <motion.div
-              ref={refDataManager}
+              ref={refReportingMadeSimple}
               initial={{ opacity: 0 }}
-              animate={dataManagerIsInView ? { opacity: 1 } : {}}
+              animate={reportingMadeSimpleIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
@@ -162,97 +160,21 @@ const CaseStudySharpen: React.FC = () => {
               <p className="text-muted-foreground leading-relaxed">Because there may be long pauses for various reasons, or increased volume indicating heated interaction, I built in a waveform visualizer.  The user can easily see where the line was silent, or where shouting begins.  This makes the review process remarkably faster and therefore more reviews can occur ensuring quality overall.</p>
             </div>
             <motion.div
-              ref={refDataManager}
+              ref={refWaveformAnalytics}
               initial={{ opacity: 0 }}
-              animate={dataManagerIsInView ? { opacity: 1 } : {}}
+              animate={waveformAnalyticsIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
-              <Image
-                src="/images/casestudies/sharpen/WaveformAnalytics.png"
-                alt="Waveform Analytics"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Advanced Filtering (with layers) into Analytics Section */}
-        <section className="space-y-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Advanced Filtering (with layers)</h2>
-              <p className="text-muted-foreground leading-relaxed">Our competitive analysis demonstrated that effective filtering occupies a large amount of screen space.  This advanced filtering concept was my solution to conserve space, while making the process easy to use and understand.</p>
-            </div>
-            {/* 
-            <TwoColumn>
-          <div>
-            <CircleNumberContainer>
-              <CircleNumber>
-                1
-              </CircleNumber>
-              <h4>Activate Filter Options</h4>
-            </CircleNumberContainer>
-            <motion.div
-                ref={refFiltering}
-                initial={{ x: '-100%', opacity: 0 }}
-                animate={FilteringisInView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-                className='center'
-            >
-              <img src="./img/casestudies/sharpen/Filtering01.png" alt="Activate Filter Options" />
-            </motion.div>
-            <PurpleBorder>
-              <ul>
-                <li>User chooses a filter type from a dropdown list of selections.</li>
-              </ul>
-            </PurpleBorder>
-          </div>
-          <div>
-            <CircleNumberContainer>
-              <CircleNumber>
-                2
-              </CircleNumber>
-              <h4>Choose a Category</h4>
-            </CircleNumberContainer>
-            <motion.div
-                ref={refFiltering}
-                initial={{ x: '100%', opacity: 0 }}
-                animate={FilteringisInView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-                className='center'
-            >
-              <img src="./img/casestudies/sharpen/Filtering02.png" alt="Choose a filter category" />
-            </motion.div>
-            <PurpleBorder>
-              <ul>
-                <li>The user may make more than one selection, and can then click Apply, or click outside of the filtering element. </li>
-              </ul>
-            </PurpleBorder>
-          </div>
-        </TwoColumn>
-        <CircleNumberContainer>
-          <CircleNumber>
-            3
-          </CircleNumber>
-          <h4>Editing Selected Filters</h4>
-        </CircleNumberContainer>
-        <TwoColumn>
-          <div>
-            <div className='center'>
-              <img src="./img/casestudies/sharpen/Filtering03.png" alt="Export selected filters" />
-            </div>
-            <PurpleBorder>
-              <ul>
-                <li>Filters can be removed simply by clicking the X on each filter element, or can add more by clicking in the input to their right.</li>
-              </ul>
-            </PurpleBorder>
-          </div>
-        </TwoColumn>
-            */}
-          </div>
-        </section>
+        <Image
+          src="/images/casestudies/sharpen/WaveformAnalytics.png"
+          alt="Waveform Analytics"
+          fill
+          style={{ objectFit: "contain" }}
+        />
+      </motion.div>
+    </div>
+  </section>
 
         {/* Conclusion Section */}
         <section className="space-y-6">

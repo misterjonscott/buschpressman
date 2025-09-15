@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 // Custom hook for intersection observer
 const useInViewAnimation = (threshold = 0.2) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -34,12 +34,15 @@ const useInViewAnimation = (threshold = 0.2) => {
 };
 
 const CaseStudyLevelUp: React.FC = () => {
-  const [refDataManager, dataManagerIsInView] = useInViewAnimation();
-  const [refAccountManager, accountManagerIsInView] = useInViewAnimation();
-  const [refAccountImpersonation, accountImpersonationIsInView] =
+  const [refUserFlowDiagram, userFlowDiagramIsInView] = useInViewAnimation();
+  const [refComponentNotation, componentNotationIsInView] = useInViewAnimation();
+  const [refDeterminingMonthlyIncome, determiningMonthlyIncomeIsInView] =
     useInViewAnimation();
-  const [refUsersAndRoles, usersAndRolesIsInView] = useInViewAnimation();
-  const [refSharing, sharingIsInView] = useInViewAnimation();
+  const [refExploreBudgetTrackingOptions, exploreBudgetTrackingOptionsIsInView] =
+    useInViewAnimation();
+  const [refClassifyingNeedsVsWants, classifyingNeedsVsWantsIsInView] =
+    useInViewAnimation();
+  const [refListingYourGoals, listingYourGoalsIsInView] = useInViewAnimation();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -78,14 +81,20 @@ const CaseStudyLevelUp: React.FC = () => {
               <p className="text-muted-foreground leading-relaxed">
                 Journey maps and prototypes are our secret weapons for crafting a powerful financial education app. We map user journeys, from initial steps to financial mastery, to understand their needs and emotions. Prototypes bring our ideas to life, letting users interact and provide feedback. This rapid cycle of testing and refinement ensures a smooth, intuitive app that empowers users to achieve financial well-being. </p>
           <div className="flex justify-center">
-            <div className="relative w-full max-w-4xl aspect-video">
+            <motion.div
+              ref={refUserFlowDiagram}
+              initial={{ opacity: 0 }}
+              animate={userFlowDiagramIsInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8 }}
+              className="relative w-full max-w-4xl aspect-video"
+            >
               <Image
                 src="/images/casestudies/levelup/UserFlowDiagram.png"
                 alt="User flow diagram"
                 fill
                 style={{ objectFit: "contain" }}
               />
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -93,9 +102,9 @@ const CaseStudyLevelUp: React.FC = () => {
         <section className="space-y-8">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <motion.div
-              ref={refDataManager}
+              ref={refComponentNotation}
               initial={{ opacity: 0 }}
-              animate={dataManagerIsInView ? { opacity: 1 } : {}}
+              animate={componentNotationIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
@@ -121,47 +130,71 @@ const CaseStudyLevelUp: React.FC = () => {
           <p className="text-muted-foreground leading-relaxed">Our app takes you on personalized journeys that unlock financial knowledge step-by-step.  Here's a glimpse into four key journeys:</p>
           <p><strong>Determining Your Monthly Income:</strong>  Start with a clear picture! This journey kicks off with a Course Overview explaining the importance of income awareness.  Interactive features like income calculators and illustrated examples guide you through identifying all your income sources.  Wrap up with a personalized breakdown of your monthly inflow, ready for budgeting.</p>
           <div className="flex justify-center">
-            <div className="relative w-full max-w-4xl aspect-video">
+            <motion.div
+              ref={refDeterminingMonthlyIncome}
+              initial={{ opacity: 0 }}
+              animate={determiningMonthlyIncomeIsInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8 }}
+              className="relative w-full max-w-4xl aspect-video"
+            >
               <Image
                 src="/images/casestudies/levelup/determiningMonthlyIncome.png"
                 alt="Determining Your Monthly Income: Flow"
                 fill
                 style={{ objectFit: "contain" }}
               />
-            </div>
+            </motion.div>
           </div>
           <p><strong>Explore Budget Tracking Options:</strong> Feeling overwhelmed by budgeting? Not anymore! The "Explore Budget Tracking Options" journey introduces you to various budgeting methods through engaging illustrations and interactive quizzes.  Match your financial personality to the perfect budgeting style, ensuring a comfortable and sustainable approach.  Swipe left for the next step!</p>
           <div className="flex justify-center">
-            <div className="relative w-full max-w-4xl aspect-video">
+            <motion.div
+              ref={refExploreBudgetTrackingOptions}
+              initial={{ opacity: 0 }}
+              animate={exploreBudgetTrackingOptionsIsInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8 }}
+              className="relative w-full max-w-4xl aspect-video"
+            >
               <Image
                 src="/images/casestudies/levelup/exploreBudgetTrackingOptions.png"
                 alt="Explore Budget Tracking Options: Flow"
                 fill
                 style={{ objectFit: "contain" }}
               />
-            </div>
+            </motion.div>
           </div>
           <p><strong>Classifying Needs vs Wants</strong>:  Mastering the art of "needs vs. wants" empowers smart spending. This journey starts with a Course Overview highlighting the difference.  Interactive exercises like sorting games and illustrated scenarios help you categorize expenses effectively.  Conclude by feeling confident in prioritizing your needs and making informed spending decisions.</p>
           <div className="flex justify-center">
-            <div className="relative w-full max-w-4xl aspect-video">
+            <motion.div
+              ref={refClassifyingNeedsVsWants}
+              initial={{ opacity: 0 }}
+              animate={classifyingNeedsVsWantsIsInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8 }}
+              className="relative w-full max-w-4xl aspect-video"
+            >
               <Image
                 src="/images/casestudies/levelup/classifyingNeedsVsWants.png"
                 alt="Classifying Needs Vs Wants: Flow"
                 fill
                 style={{ objectFit: "contain" }}
               />
-            </div>
+            </motion.div>
           </div>
           <p><strong>Listing Your Goals:</strong>  Let's turn financial dreams into reality! This journey begins with a Course Overview on setting achievable goals.  Interactive tools like guided prompts and vision board creation walk you through defining your short and long-term financial aspirations.  Finish by feeling motivated with a clear roadmap to your financial goals.</p>
           <div className="flex justify-center">
-            <div className="relative w-full max-w-4xl aspect-video">
+            <motion.div
+              ref={refListingYourGoals}
+              initial={{ opacity: 0 }}
+              animate={listingYourGoalsIsInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8 }}
+              className="relative w-full max-w-4xl aspect-video"
+            >
               <Image
                 src="/images/casestudies/levelup/listingYourGoals.png"
                 alt="Listing Your Goals: Flow"
                 fill
                 style={{ objectFit: "contain" }}
               />
-            </div>
+            </motion.div>
           </div>
           <p>Throughout each journey, clear introductions and concluding summaries ensure you grasp the concepts.  Swipe left after each lesson to progress and unlock new financial mastery!</p>
         </section>

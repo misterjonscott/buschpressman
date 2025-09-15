@@ -34,12 +34,15 @@ const useInViewAnimation = (threshold = 0.2) => {
 };
 
 const CaseStudyIndigo: React.FC = () => {
-  const [refDataManager, dataManagerIsInView] = useInViewAnimation();
-  const [refAccountManager, accountManagerIsInView] = useInViewAnimation();
-  const [refAccountImpersonation, accountImpersonationIsInView] =
+  const [refDashboardBeforeAfter, dashboardBeforeAfterIsInView] =
     useInViewAnimation();
-  const [refUsersAndRoles, usersAndRolesIsInView] = useInViewAnimation();
-  const [refSharing, sharingIsInView] = useInViewAnimation();
+  const [refReducedClutter, reducedClutterIsInView] = useInViewAnimation();
+  const [refFilteringMenu, filteringMenuIsInView] = useInViewAnimation();
+  const [refLotsAndLevels, lotsAndLevelsIsInView] = useInViewAnimation();
+  const [refUserManagement, userManagementIsInView] = useInViewAnimation();
+  const [refBranding, brandingIsInView] = useInViewAnimation();
+  const [refDashboardConclusion, dashboardConclusionIsInView] =
+    useInViewAnimation();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -70,7 +73,13 @@ const CaseStudyIndigo: React.FC = () => {
           <p className="text-lg text-muted-foreground leading-relaxed">
             Indigo's primary product reads the output from Mass Spectrometry machines, and delivers human-readable results without the training required to read and analyze the test results without years of medical training.  Unfortunately, while the software's capability was amazing, accurate and much faster than human review, it was also difficult to use and properly configure.
           </p>
-          <div className="flex justify-center">
+          <motion.div
+            ref={refDashboardBeforeAfter}
+            initial={{ opacity: 0 }}
+            animate={dashboardBeforeAfterIsInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
                 src="/images/casestudies/indigo/dashboardBeforeAndAfter.png"
@@ -79,7 +88,7 @@ const CaseStudyIndigo: React.FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Project Overview Section */}
@@ -105,9 +114,9 @@ const CaseStudyIndigo: React.FC = () => {
             <p className="text-muted-foreground leading-relaxed">By user request, we added the ability to save filtering states, so a complex system of filters can be loaded instantly.  </p>
             </div>
             <motion.div
-              ref={refDataManager}
+              ref={refReducedClutter}
               initial={{ opacity: 0 }}
-              animate={dataManagerIsInView ? { opacity: 1 } : {}}
+              animate={reducedClutterIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
@@ -131,9 +140,9 @@ const CaseStudyIndigo: React.FC = () => {
               <p className="text-muted-foreground leading-relaxed">By user request, we added the ability to save filtering states, so a complex system of filters can be loaded instantly.  </p>
             </div>
             <motion.div
-              ref={refDataManager}
+              ref={refFilteringMenu}
               initial={{ opacity: 0 }}
-              animate={dataManagerIsInView ? { opacity: 1 } : {}}
+              animate={filteringMenuIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
@@ -151,7 +160,13 @@ const CaseStudyIndigo: React.FC = () => {
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Dashboard Conclusion</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">Overall the dashboard appears much more professional and polished, making it easier to get work done.  Filtering is simplified, unnecessary results are hidden, and color coding is used to highlight the batches that require immediate attention.  This redesigned dashboard contains all of the same information, but in a much more approachable and finished format that users absolutely loved.</p>
-          <div className="flex justify-center">
+          <motion.div
+            ref={refDashboardConclusion}
+            initial={{ opacity: 0 }}
+            animate={dashboardConclusionIsInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
                 src="/images/casestudies/indigo/dashboardConclusion.png"
@@ -160,14 +175,20 @@ const CaseStudyIndigo: React.FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Controlling the Flow */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Controlling the Flow</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">Configuration of this software is largely done on the Lots & Levels configuration screen, but the existing flow was confusing and led users to call for help more often than not.  Simply redesigning the flow made the process obvious and clear.</p>
-          <div className="flex justify-center">
+          <motion.div
+            ref={refLotsAndLevels}
+            initial={{ opacity: 0 }}
+            animate={lotsAndLevelsIsInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
                 src="/images/casestudies/indigo/lotsAndLevels.png"
@@ -176,15 +197,21 @@ const CaseStudyIndigo: React.FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Combining to Simplify */}
         <section className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold">Combinging to Simplify</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Combining to Simplify</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">Configuration of users occured on 3 separate screens, with one allowing new users to be added, the next allowing management of user accounts, and yet another screen just to manage complex user permissions.</p>
           <p className="text-lg text-muted-foreground leading-relaxed">I combined all of these activities into a single interface saving time for our users, but also simplifying debugging and development processes for our developers.</p>
-          <div className="flex justify-center">
+          <motion.div
+            ref={refUserManagement}
+            initial={{ opacity: 0 }}
+            animate={userManagementIsInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
                 src="/images/casestudies/indigo/userManagement.png"
@@ -193,14 +220,20 @@ const CaseStudyIndigo: React.FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Branding */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Branding</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">TBD text aout this section</p>
-          <div className="flex justify-center">
+          <motion.div
+            ref={refBranding}
+            initial={{ opacity: 0 }}
+            animate={brandingIsInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
                 src="/images/casestudies/indigo/indigoBranding.png"
@@ -209,7 +242,7 @@ const CaseStudyIndigo: React.FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Conclusion Section */}
