@@ -53,37 +53,37 @@ const caseStudies: CaseStudy[] = [
   {
     id: 'geofeedia',
     title: 'Geofeedia',
-    imageSrc: '/images/casestudies/CaseStudyGeofeediaActive.png',
+    imageSrc: '/images/casestudies/CaseStudyGeofeediaActive.webp',
     component: lazy(() => import('../components/casestudies/CaseStudyGeofeedia')),
   },
   {
     id: 'indigo',
     title: 'Indigo',
-    imageSrc: '/images/casestudies/CaseStudyIndigoActive.png',
+    imageSrc: '/images/casestudies/CaseStudyIndigoActive.webp',
     component: lazy(() => import('../components/casestudies/CaseStudyIndigo')),
   },
   {
     id: 'levelup',
     title: 'LevelUp',
-    imageSrc: '/images/casestudies/CaseStudyLevelUpActive.png',
+    imageSrc: '/images/casestudies/CaseStudyLevelUpActive.webp',
     component: lazy(() => import('../components/casestudies/CaseStudyLevelUp')),
   },
   {
     id: 'lids',
     title: 'Lids',
-    imageSrc: '/images/casestudies/CaseStudyLidsActive.png',
+    imageSrc: '/images/casestudies/CaseStudyLidsActive.webp',
     component: lazy(() => import('../components/casestudies/CaseStudyLids')),
   },
   {
     id: 'sharpen',
     title: 'Sharpen',
-    imageSrc: '/images/casestudies/CaseStudySharpenActive.png',
+    imageSrc: '/images/casestudies/CaseStudySharpenActive.webp',
     component: lazy(() => import('../components/casestudies/CaseStudySharpen')),
   },
   {
     id: 'skillable',
     title: 'Skillable',
-    imageSrc: '/images/casestudies/CaseStudySkillableActive.png',
+    imageSrc: '/images/casestudies/CaseStudySkillableActive.webp',
     component: lazy(() => import('../components/casestudies/CaseStudySkillable')),
   },
 ];
@@ -115,13 +115,13 @@ const Projects: React.FC = () => {
   const CaseStudyComponent = selectedCaseStudy?.component;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-100 p-8">
+    <div className="min-h-screen flex items-center justify-center p-8" style={{ backgroundColor: '#22223b' }}>
       <div className="w-full max-w-6xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {caseStudies.map((study) => (
             <motion.div
               key={study.id}
-              className="relative w-full cursor-pointer shadow-lg"
+              className="relative w-full cursor-pointer shadow-lg rounded-xl"
               style={{ aspectRatio: '314 / 119' }} // Maintain true aspect ratio
               variants={cardVariants}
               initial="hidden"
@@ -131,6 +131,7 @@ const Projects: React.FC = () => {
               onClick={() => handleOpenModal(study)}
             >
               <Image
+              className='rounded-xl'
               src={study.imageSrc}
               alt={`${study.title} case study cover`}
               fill

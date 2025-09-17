@@ -19,13 +19,15 @@ const useInViewAnimation = (threshold = 0.2) => {
       { threshold }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [threshold]);
@@ -56,7 +58,7 @@ const CaseStudyLevelUp: React.FC = () => {
           </div>
           <div className="relative w-[200px] aspect-square">
             <Image
-              src="/images/casestudies/CaseStudyLevelUpActive.png"
+              src="/images/casestudies/CaseStudyLevelUpActive.webp"
               alt="LevelUp Case Study"
               fill
               style={{ objectFit: "contain" }}
@@ -89,7 +91,7 @@ const CaseStudyLevelUp: React.FC = () => {
               className="relative w-full max-w-4xl aspect-video"
             >
               <Image
-                src="/images/casestudies/levelup/UserFlowDiagram.png"
+                src="/images/casestudies/levelup/UserFlowDiagram.webp"
                 alt="User flow diagram"
                 fill
                 style={{ objectFit: "contain" }}
@@ -109,7 +111,7 @@ const CaseStudyLevelUp: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/levelup/componentNotation.png"
+                src="/images/casestudies/levelup/componentNotation.webp"
                 alt="Component notation"
                 fill
                 style={{ objectFit: "contain" }}
@@ -118,7 +120,7 @@ const CaseStudyLevelUp: React.FC = () => {
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">Anatomy of a Course</h2>
               <p className="text-muted-foreground leading-relaxed">Each callout type (quiz, Did you know?, recap, and task/activity) has a unique icon and color-coded border for easy recognition. We designed them to be minimal and helpful, guiding your learning without being overwhelming.</p>
-              <p className="text-muted-foreground leading-relaxed">Throughout the lesson, you'll also see a variety of visuals to keep things engaging. Images and videos will stretch across your entire screen for maximum impact, while illustrations will be centered for a clean, focused look.</p>
+              <p className="text-muted-foreground leading-relaxed">Throughout the lesson, you&apos;ll also see a variety of visuals to keep things engaging. Images and videos will stretch across your entire screen for maximum impact, while illustrations will be centered for a clean, focused look.</p>
               <p className="text-muted-foreground leading-relaxed">This guide provides the development team with key details for styling these elements. Look for the orange arrows highlighting these details for a quicker build process.</p>
             </div>
           </div>
@@ -127,7 +129,7 @@ const CaseStudyLevelUp: React.FC = () => {
         {/* User Journeys: Exploring Different Financial Goals Section */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">User Journeys: Exploring Different Financial Goals.</h2>
-          <p className="text-muted-foreground leading-relaxed">Our app takes you on personalized journeys that unlock financial knowledge step-by-step.  Here's a glimpse into four key journeys:</p>
+          <p className="text-muted-foreground leading-relaxed">Our app takes you on personalized journeys that unlock financial knowledge step-by-step.  Here&apos;s a glimpse into four key journeys:</p>
           <p><strong>Determining Your Monthly Income:</strong>  Start with a clear picture! This journey kicks off with a Course Overview explaining the importance of income awareness.  Interactive features like income calculators and illustrated examples guide you through identifying all your income sources.  Wrap up with a personalized breakdown of your monthly inflow, ready for budgeting.</p>
           <div className="flex justify-center">
             <motion.div
@@ -138,14 +140,14 @@ const CaseStudyLevelUp: React.FC = () => {
               className="relative w-full max-w-4xl aspect-video"
             >
               <Image
-                src="/images/casestudies/levelup/determiningMonthlyIncome.png"
+                src="/images/casestudies/levelup/determiningMonthlyIncome.webp"
                 alt="Determining Your Monthly Income: Flow"
                 fill
                 style={{ objectFit: "contain" }}
               />
             </motion.div>
           </div>
-          <p><strong>Explore Budget Tracking Options:</strong> Feeling overwhelmed by budgeting? Not anymore! The "Explore Budget Tracking Options" journey introduces you to various budgeting methods through engaging illustrations and interactive quizzes.  Match your financial personality to the perfect budgeting style, ensuring a comfortable and sustainable approach.  Swipe left for the next step!</p>
+          <p><strong>Explore Budget Tracking Options:</strong> Feeling overwhelmed by budgeting? Not anymore! The &quot;Explore Budget Tracking Options&quot; journey introduces you to various budgeting methods through engaging illustrations and interactive quizzes.  Match your financial personality to the perfect budgeting style, ensuring a comfortable and sustainable approach.  Swipe left for the next step!</p>
           <div className="flex justify-center">
             <motion.div
               ref={refExploreBudgetTrackingOptions}
@@ -155,14 +157,14 @@ const CaseStudyLevelUp: React.FC = () => {
               className="relative w-full max-w-4xl aspect-video"
             >
               <Image
-                src="/images/casestudies/levelup/exploreBudgetTrackingOptions.png"
+                src="/images/casestudies/levelup/exploreBudgetTrackingOptions.webp"
                 alt="Explore Budget Tracking Options: Flow"
                 fill
                 style={{ objectFit: "contain" }}
               />
             </motion.div>
           </div>
-          <p><strong>Classifying Needs vs Wants</strong>:  Mastering the art of "needs vs. wants" empowers smart spending. This journey starts with a Course Overview highlighting the difference.  Interactive exercises like sorting games and illustrated scenarios help you categorize expenses effectively.  Conclude by feeling confident in prioritizing your needs and making informed spending decisions.</p>
+          <p><strong>Classifying Needs vs Wants</strong>:  Mastering the art of &quot;needs vs. wants&quot; empowers smart spending. This journey starts with a Course Overview highlighting the difference.  Interactive exercises like sorting games and illustrated scenarios help you categorize expenses effectively.  Conclude by feeling confident in prioritizing your needs and making informed spending decisions.</p>
           <div className="flex justify-center">
             <motion.div
               ref={refClassifyingNeedsVsWants}
@@ -172,14 +174,14 @@ const CaseStudyLevelUp: React.FC = () => {
               className="relative w-full max-w-4xl aspect-video"
             >
               <Image
-                src="/images/casestudies/levelup/classifyingNeedsVsWants.png"
+                src="/images/casestudies/levelup/classifyingNeedsVsWants.webp"
                 alt="Classifying Needs Vs Wants: Flow"
                 fill
                 style={{ objectFit: "contain" }}
               />
             </motion.div>
           </div>
-          <p><strong>Listing Your Goals:</strong>  Let's turn financial dreams into reality! This journey begins with a Course Overview on setting achievable goals.  Interactive tools like guided prompts and vision board creation walk you through defining your short and long-term financial aspirations.  Finish by feeling motivated with a clear roadmap to your financial goals.</p>
+          <p><strong>Listing Your Goals:</strong>  Let&apos;s turn financial dreams into reality! This journey begins with a Course Overview on setting achievable goals.  Interactive tools like guided prompts and vision board creation walk you through defining your short and long-term financial aspirations.  Finish by feeling motivated with a clear roadmap to your financial goals.</p>
           <div className="flex justify-center">
             <motion.div
               ref={refListingYourGoals}
@@ -189,7 +191,7 @@ const CaseStudyLevelUp: React.FC = () => {
               className="relative w-full max-w-4xl aspect-video"
             >
               <Image
-                src="/images/casestudies/levelup/listingYourGoals.png"
+                src="/images/casestudies/levelup/listingYourGoals.webp"
                 alt="Listing Your Goals: Flow"
                 fill
                 style={{ objectFit: "contain" }}
@@ -202,7 +204,7 @@ const CaseStudyLevelUp: React.FC = () => {
         {/* Conclusion Section */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Conclusion</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">I UX-engineered a mobile app prototype to gamify financial literacy. Users embark on interactive journeys like "Budget Tracking Bootcamp" and "Needs vs. Wants Showdown." Clear intros, engaging visuals, and fun exercises guide them towards financial well-being.  This case study highlights the power of UX design in crafting educational experiences that are both informative and delightful!</p>
+          <p className="text-lg text-muted-foreground leading-relaxed">I UX-engineered a mobile app prototype to gamify financial literacy. Users embark on interactive journeys like &quot;Budget Tracking Bootcamp&quot; and &quot;Needs vs. Wants Showdown.&quot; Clear intros, engaging visuals, and fun exercises guide them towards financial well-being.  This case study highlights the power of UX design in crafting educational experiences that are both informative and delightful!</p>
         </section>
       </main>
     </div>

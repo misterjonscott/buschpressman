@@ -19,17 +19,18 @@ const useInViewAnimation = (threshold = 0.2) => {
       { threshold }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [threshold]);
-
   return [ref, isInView] as const;
 };
 
@@ -60,7 +61,7 @@ const CaseStudyLids: React.FC = () => {
           </div>
           <div className="relative w-[200px] aspect-square">
             <Image
-              src="/images/casestudies/CaseStudyLidsActive.png"
+              src="/images/casestudies/CaseStudyLidsActive.webp"
               alt="Lids Case Study"
               fill
               style={{ objectFit: "contain" }}
@@ -92,7 +93,7 @@ const CaseStudyLids: React.FC = () => {
             Faster to Finish: Optimizing the Checkout Process
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Who needs checkout marathons? I revamped Lids' checkout into a
+            Who needs checkout marathons? I revamped Lids&apos; checkout into a
             single, smooth journey. Users see a sneak peek of the next step,
             keeping them moving forward. Real-time validation catches errors on
             the fly, and completion cards on the side let users easily review
@@ -109,7 +110,7 @@ const CaseStudyLids: React.FC = () => {
                 className="relative aspect-[3/2]"
               >
                 <Image
-                  src="/images/casestudies/lids/checkoutProcess01.png"
+                  src="/images/casestudies/lids/checkoutProcess01.webp"
                   alt="Component notation"
                   fill
                   style={{ objectFit: "contain" }}
@@ -131,7 +132,7 @@ const CaseStudyLids: React.FC = () => {
                 className="relative aspect-square"
               >
                 <Image
-                  src="/images/casestudies/lids/checkoutProcess02.png"
+                  src="/images/casestudies/lids/checkoutProcess02.webp"
                   alt="Component notation"
                   fill
                   style={{ objectFit: "contain" }}
@@ -152,7 +153,7 @@ const CaseStudyLids: React.FC = () => {
                 className="relative aspect-square"
               >
                 <Image
-                  src="/images/casestudies/lids/checkoutProcess03.png"
+                  src="/images/casestudies/lids/checkoutProcess03.webp"
                   alt="Component notation"
                   fill
                   style={{ objectFit: "contain" }}
@@ -174,7 +175,7 @@ const CaseStudyLids: React.FC = () => {
                 className="relative aspect-square"
               >
                 <Image
-                  src="/images/casestudies/lids/checkoutProcess04.png"
+                  src="/images/casestudies/lids/checkoutProcess04.webp"
                   alt="Component notation"
                   fill
                   style={{ objectFit: "contain" }}
@@ -195,7 +196,7 @@ const CaseStudyLids: React.FC = () => {
                 className="relative aspect-square"
               >
                 <Image
-                  src="/images/casestudies/lids/checkoutProcess05.png"
+                  src="/images/casestudies/lids/checkoutProcess05.webp"
                   alt="Component notation"
                   fill
                   style={{ objectFit: "contain" }}
@@ -221,7 +222,7 @@ const CaseStudyLids: React.FC = () => {
               className="relative aspect-square"
             >
               <Image
-                src="/images/casestudies/lids/shoppingCart.png"
+                src="/images/casestudies/lids/shoppingCart.webp"
                 alt="Shopping Cart Redesign"
                 fill
                 style={{ objectFit: "contain" }}
@@ -232,11 +233,11 @@ const CaseStudyLids: React.FC = () => {
                 Boosting Conversions: A Shopping Cart Designed to Sell
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                We turned Lids' shopping cart into a conversion champion! Dual
+                We turned Lids&apos; shopping cart into a conversion champion! Dual
                 columns streamline the experience while subtly nudging
                 purchases. Clear product details and easy edits are on the
                 right, with timely nudges to reach free shipping. Convenient
-                buttons for "Continue Shopping" and "Checkout" are always at
+                buttons for &quot;Continue Shopping&quot; and &quot;Checkout&quot; are always at
                 hand. Transparency reigns with detailed breakdowns of each
                 charge. Plus, a peek at hot picks tempts them to add more!
                 Trustworthy checkout icons round out the experience. This cart
@@ -257,7 +258,7 @@ const CaseStudyLids: React.FC = () => {
               className="relative aspect-[3/4]"
             >
               <Image
-                src="/images/casestudies/lids/buildingBlocks.png"
+                src="/images/casestudies/lids/buildingBlocks.webp"
                 alt="Building Blocks"
                 fill
                 style={{ objectFit: "contain" }}
@@ -273,8 +274,8 @@ const CaseStudyLids: React.FC = () => {
                 This system utilizes a core set of reusable components that can
                 be customized to reflect the unique visual identity of each
                 team. Each component offers two width options, allowing for
-                strategic use of "pop-out" elements to create visual hierarchy
-                and draw user attention.{" "}
+                strategic use of &quot;pop-out&quot; elements to create visual hierarchy
+                and draw user attention.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
@@ -339,7 +340,7 @@ const CaseStudyLids: React.FC = () => {
               className="relative w-full max-w-4xl aspect-square"
             >
               <Image
-                src="/images/casestudies/lids/fanShops.png"
+                src="/images/casestudies/lids/fanShops.webp"
                 alt="Lids Fan Shops"
                 fill
                 style={{ objectFit: "contain" }}

@@ -19,13 +19,15 @@ const useInViewAnimation = (threshold = 0.2) => {
       { threshold }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [threshold]);
@@ -56,7 +58,7 @@ const CaseStudyIndigo: React.FC = () => {
           </div>
           <div className="relative w-[200px] aspect-square">
             <Image
-              src="/images/casestudies/CaseStudyIndigoActive.png"
+              src="/images/casestudies/CaseStudyIndigoActive.webp"
               alt="Indigo Case Study"
               fill
               style={{ objectFit: "contain" }}
@@ -71,7 +73,7 @@ const CaseStudyIndigo: React.FC = () => {
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Introduction</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Indigo's primary product reads the output from Mass Spectrometry machines, and delivers human-readable results without the training required to read and analyze the test results without years of medical training.  Unfortunately, while the software's capability was amazing, accurate and much faster than human review, it was also difficult to use and properly configure.
+            Indigo&apos;s primary product reads the output from Mass Spectrometry machines, and delivers human-readable results without the training required to read and analyze the test results without years of medical training.  Unfortunately, while the software&apos;s capability was amazing, accurate and much faster than human review, it was also difficult to use and properly configure.
           </p>
           <motion.div
             ref={refDashboardBeforeAfter}
@@ -82,7 +84,7 @@ const CaseStudyIndigo: React.FC = () => {
           >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
-                src="/images/casestudies/indigo/dashboardBeforeAndAfter.png"
+                src="/images/casestudies/indigo/dashboardBeforeAndAfter.webp"
                 alt="Indigo overview"
                 fill
                 style={{ objectFit: "contain" }}
@@ -95,10 +97,10 @@ const CaseStudyIndigo: React.FC = () => {
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Reduce Clutter, Direct Attention</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Any batches that are already cancelled or certified no longer need attention, and are very rarely viewed, so we don't need to sacrifice valuable screen space to display them.  In this iteration, I used a tabbed approach to show only active batches, but the user can easily view the completed batches with a single click.
+            Any batches that are already cancelled or certified no longer need attention, and are very rarely viewed, so we don&apos;t need to sacrifice valuable screen space to display them.  In this iteration, I used a tabbed approach to show only active batches, but the user can easily view the completed batches with a single click.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            This declutters the display, calling more attention to where it's needed, while making the matrix feel more approachable.
+            This declutters the display, calling more attention to where it&apos;s needed, while making the matrix feel more approachable.
           </p>
         </section>
         {/* Reusable Filtering Section */}
@@ -121,7 +123,7 @@ const CaseStudyIndigo: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/indigo/reducedClutter.png"
+                src="/images/casestudies/indigo/reducedClutter.webp"
                 alt="Reducing Clutter"
                 fill
                 style={{ objectFit: "contain" }}
@@ -147,7 +149,7 @@ const CaseStudyIndigo: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/indigo/filterMenu.png"
+                src="/images/casestudies/indigo/filterMenu.webp"
                 alt="Filtering Menu"
                 fill
                 style={{ objectFit: "contain" }}
@@ -169,7 +171,7 @@ const CaseStudyIndigo: React.FC = () => {
           >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
-                src="/images/casestudies/indigo/dashboardConclusion.png"
+                src="/images/casestudies/indigo/dashboardConclusion.webp"
                 alt="Dashboard before and after"
                 fill
                 style={{ objectFit: "contain" }}
@@ -191,7 +193,7 @@ const CaseStudyIndigo: React.FC = () => {
           >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
-                src="/images/casestudies/indigo/lotsAndLevels.png"
+                src="/images/casestudies/indigo/lotsAndLevels.webp"
                 alt="Lots and Levels Configuration"
                 fill
                 style={{ objectFit: "contain" }}
@@ -214,7 +216,7 @@ const CaseStudyIndigo: React.FC = () => {
           >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
-                src="/images/casestudies/indigo/userManagement.png"
+                src="/images/casestudies/indigo/userManagement.webp"
                 alt="User Configuration"
                 fill
                 style={{ objectFit: "contain" }}
@@ -236,7 +238,7 @@ const CaseStudyIndigo: React.FC = () => {
           >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
-                src="/images/casestudies/indigo/indigoBranding.png"
+                src="/images/casestudies/indigo/indigoBranding.webp"
                 alt="Indigo Branding"
                 fill
                 style={{ objectFit: "contain" }}
@@ -249,7 +251,7 @@ const CaseStudyIndigo: React.FC = () => {
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Conclusion</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Decoding the results of a complex medical testing process is no easy task, even when you've created software that can decode those results very quickly.  My changes resulted in a much easier, and more approachable, system that no longer required the valuable time of trained medical staff for initial review, allowing doctors to focus on other tasks, only addressing the most confusing of results.</p>
+            Decoding the results of a complex medical testing process is no easy task, even when you&apos;ve created software that can decode those results very quickly.  My changes resulted in a much easier, and more approachable, system that no longer required the valuable time of trained medical staff for initial review, allowing doctors to focus on other tasks, only addressing the most confusing of results.</p>
         </section>
       </main>
     </div>

@@ -1,21 +1,24 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { useInView } from 'framer-motion';
 import Header from '@/components/header';
-import Hero from '@/components/hero';
-import About from '@/sections/About';
-import Snapshots from '@/sections/Snapshots';
-import Projects from '@/sections/Projects';
-import Skills from '@/sections/Skills';
-import Recommendations from '@/sections/Recommendations';
-import Contact from '@/sections/Contact';
-import Footer from '@/components/footer';
+import SplashScreen from '@/components/hero';
+
+// Dynamically import all sections
+const About = dynamic(() => import('@/sections/About'), { ssr: false });
+const Snapshots = dynamic(() => import('@/sections/Snapshots'), { ssr: false });
+const Projects = dynamic(() => import('@/sections/Projects'), { ssr: false });
+const Skills = dynamic(() => import('@/sections/Skills'), { ssr: false });
+const Recommendations = dynamic(() => import('@/sections/Recommendations'), { ssr: false });
+const Contact = dynamic(() => import('@/sections/Contact'), { ssr: false });
+const Footer = dynamic(() => import('@/components/footer'), { ssr: false });
 
 const Home = () => {
   const [currentSection, setCurrentSection] = useState('home');
+  const activeSectionRef = useRef('home');
 
-  // Create refs for each section
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const snapshotsRef = useRef(null);
@@ -24,7 +27,6 @@ const Home = () => {
   const recommendationsRef = useRef(null);
   const contactRef = useRef(null);
 
-  // Use useInView hook for each section
   const isHomeInView = useInView(homeRef, { margin: "-50% 0px -50% 0px" });
   const isAboutInView = useInView(aboutRef, { margin: "-50% 0px -50% 0px" });
   const isSnapshotsInView = useInView(snapshotsRef, { margin: "-50% 0px -50% 0px" });
@@ -34,13 +36,19 @@ const Home = () => {
   const isContactInView = useInView(contactRef, { margin: "-50% 0px -50% 0px" });
 
   useEffect(() => {
-    if (isHomeInView) setCurrentSection('home');
-    else if (isAboutInView) setCurrentSection('about');
-    else if (isSnapshotsInView) setCurrentSection('snapshots');
-    else if (isProjectsInView) setCurrentSection('projects');
-    else if (isSkillsInView) setCurrentSection('skills');
-    else if (isRecommendationsInView) setCurrentSection('recommendations');
-    else if (isContactInView) setCurrentSection('contact');
+    const newActiveSection = 
+      (isHomeInView && 'home') ||
+      (isAboutInView && 'about') ||
+      (isSnapshotsInView && 'snapshots') ||
+      (isProjectsInView && 'projects') ||
+      (isSkillsInView && 'skills') ||
+      (isRecommendationsInView && 'recommendations') ||
+      (isContactInView && 'contact');
+
+    if (newActiveSection && newActiveSection !== activeSectionRef.current) {
+      activeSectionRef.current = newActiveSection;
+      setCurrentSection(newActiveSection);
+    }
   }, [
     isHomeInView,
     isAboutInView,
@@ -55,7 +63,7 @@ const Home = () => {
     <div style={{ position: 'relative' }}>
       <Header currentSection={currentSection} setCurrentSection={setCurrentSection} />
       <section id="home" ref={homeRef} className="relative">
-        <Hero />
+        <SplashScreen />
       </section>
       <section id="about" ref={aboutRef} className="relative">
         <About />

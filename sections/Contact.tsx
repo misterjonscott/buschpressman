@@ -216,7 +216,7 @@ const ContactInfo = ({ className }: { className?: string }) => {
         <div className={cn("mb-5 flex flex-col items-center", className)}>
             <div className="relative overflow-hidden rounded-full shadow-lg w-[200px] h-[200px] md:w-[300px] md:h-[300px]">
                 <Image
-                    src="/images/sardino.png"
+                    src="/images/jon-scott.webp"
                     alt="Contact Me Graphic"
                     fill
                     priority

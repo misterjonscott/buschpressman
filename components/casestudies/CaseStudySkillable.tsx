@@ -19,13 +19,15 @@ const useInViewAnimation = (threshold = 0.2) => {
       { threshold }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [threshold]);
@@ -41,7 +43,6 @@ const CaseStudySkillable: React.FC = () => {
   const [refAdvancedFiltering3, AdvancedFiltering3IsInView] = useInViewAnimation();
   const [refAdvancedFiltering4, AdvancedFiltering4IsInView] = useInViewAnimation();
   const [refAdvancedFiltering5, AdvancedFiltering5IsInView] = useInViewAnimation();
-  const [refAdvancedFiltering6, AdvancedFiltering6IsInView] = useInViewAnimation();
   const [refCardDesign, CardDesignisInView] = useInViewAnimation();
   const [refCardVariations, CardVariationsIsInView] = useInViewAnimation();
   const [refGridAndList, GridAndListisInView] = useInViewAnimation();
@@ -59,7 +60,7 @@ const CaseStudySkillable: React.FC = () => {
           </div>
           <div className="relative w-[200px] aspect-square">
             <Image
-              src="/images/casestudies/CaseStudySkillableActive.png"
+              src="/images/casestudies/CaseStudySkillableActive.webp"
               alt="Skillable Case Study Active"
               fill
               style={{ objectFit: 'contain' }}
@@ -83,7 +84,7 @@ const CaseStudySkillable: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-gray-600 leading-relaxed">
-                Because there are many existing TMS platforms, that people are already using and familiar with, we should reference what's already working in the market. We'll take note of what features and controls each competitor has before deciding if it suits our needs.
+                Because there are many existing TMS platforms, that people are already using and familiar with, we should reference what&apos;s already working in the market. We&apos;ll take note of what features and controls each competitor has before deciding if it suits our needs.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 In this case, I discovered that most TMS platforms included filtering options, but the options are overwhelming and occupy too much space. Furthermore, each TMS displayed a matrix of courses, but few offered control over their display or pagination.
@@ -96,7 +97,7 @@ const CaseStudySkillable: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <Image
-                src="/images/casestudies/skillable/competitiveanalysis.png"
+                src="/images/casestudies/skillable/competitiveanalysis.webp"
                 alt="Competetive Analysis"
                 width={500}
                 height={500}
@@ -120,7 +121,7 @@ const CaseStudySkillable: React.FC = () => {
                 className="text-center"
               >
                 <Image
-                  src="/images/casestudies/skillable/initialdraft.png"
+                  src="/images/casestudies/skillable/initialdraft.webp"
                   alt="Initial Draft"
                   width={500}
                   height={500}
@@ -134,7 +135,7 @@ const CaseStudySkillable: React.FC = () => {
               className="text-center"
             >
               <Image
-                src="/images/casestudies/skillable/initialdraftcontrols.png"
+                src="/images/casestudies/skillable/initialdraftcontrols.webp"
                 alt="Initial Draft Controls"
                 width={500}
                 height={500}
@@ -162,7 +163,7 @@ const CaseStudySkillable: React.FC = () => {
                 className="text-center my-4"
               >
                 <Image
-                  src="/images/casestudies/skillable/activatefilteroptions.png"
+                  src="/images/casestudies/skillable/activatefilteroptions.webp"
                   alt="Activate Filter Options"
                   width={500}
                   height={500}
@@ -170,8 +171,8 @@ const CaseStudySkillable: React.FC = () => {
               </motion.div>
               <div className="p-4 border-2 border-purple-600 rounded-lg">
                 <ul className="text-gray-600 leading-relaxed list-disc list-inside space-y-2">
-                  <li>When Filter Options is clicked, the Filter Options button gets a bottom arrow to show it's expanded, and the Add New button appears, already active and ready.</li>
-                  <li>Total count of favorites is displayed. If there are not favorites, don't display.</li>
+                  <li>When Filter Options is clicked, the Filter Options button gets a bottom arrow to show it&apos;s expanded, and the Add New button appears, already active and ready.</li>
+                  <li>Total count of favorites is displayed. If there are not favorites, don&apos;t display.</li>
                   <li>Favorites and Review Rating are standard, other filter categories are dynamic, based on available results.</li>
                 </ul>
               </div>
@@ -188,7 +189,7 @@ const CaseStudySkillable: React.FC = () => {
                 className="text-center my-4"
               >
                 <Image
-                  src="/images/casestudies/skillable/chooseacategory.png"
+                  src="/images/casestudies/skillable/chooseacategory.webp"
                   alt="Choose a filter category"
                   width={500}
                   height={500}
@@ -220,7 +221,7 @@ const CaseStudySkillable: React.FC = () => {
                 className="text-center my-4"
               >
                 <Image
-                  src="/images/casestudies/skillable/exportselectedfilters.png"
+                  src="/images/casestudies/skillable/exportselectedfilters.webp"
                   alt="Export selected filters"
                   width={500}
                   height={500}
@@ -228,7 +229,7 @@ const CaseStudySkillable: React.FC = () => {
               </motion.div>
               <div className="p-4 border-2 border-purple-600 rounded-lg">
                 <ul className="text-gray-600 leading-relaxed list-disc list-inside space-y-2">
-                  <li>When Filter is chosen, the filter's controller appears, populated with the choice or choices (if allowed).</li>
+                  <li>When Filter is chosen, the filter&apos;s controller appears, populated with the choice or choices (if allowed).</li>
                   <li>the user can click to edit their choices (using the same menu as they chose to select them, or remove that filter using the X button. They can also add another filter at this stage.</li>
                   <li>When editing a filter, the currently selected choices should be anchored to the top of the list.</li>
                   <li>Filter selections can be applied by clicking the checkmark on the filter controller, or by clicking the Apply button.</li>
@@ -244,7 +245,7 @@ const CaseStudySkillable: React.FC = () => {
                 className="text-center my-4"
               >
                 <Image
-                  src="/images/casestudies/skillable/editmode.png"
+                  src="/images/casestudies/skillable/editmode.webp"
                   alt="Edit mode"
                   width={500}
                   height={500}
@@ -269,7 +270,7 @@ const CaseStudySkillable: React.FC = () => {
                 className="text-center my-4"
               >
                 <Image
-                  src="/images/casestudies/skillable/finaldetails.png"
+                  src="/images/casestudies/skillable/finaldetails.webp"
                   alt="Final details for filtering"
                   width={500}
                   height={500}
@@ -290,7 +291,7 @@ const CaseStudySkillable: React.FC = () => {
                 className="text-center my-4"
               >
                 <Image
-                  src="/images/casestudies/skillable/finaldetails2.png"
+                  src="/images/casestudies/skillable/finaldetails2.webp"
                   alt="Final Details for filtering pt2"
                   width={500}
                   height={500}
@@ -315,7 +316,7 @@ const CaseStudySkillable: React.FC = () => {
             className="text-center"
           >
             <Image
-              src="/images/casestudies/skillable/carddesign.png"
+              src="/images/casestudies/skillable/carddesign.webp"
               alt="Card Design"
               width={1000}
               height={500}
@@ -334,13 +335,13 @@ const CaseStudySkillable: React.FC = () => {
               className="space-y-4"
             >
               <Image
-                src="/images/casestudies/skillable/cardvariations.png"
+                src="/images/casestudies/skillable/cardvariations.webp"
                 alt="Card Variations"
                 width={1000}
                 height={500}
               />
               <Image
-                src="/images/casestudies/skillable/cardvariationslist.png"
+                src="/images/casestudies/skillable/cardvariationslist.webp"
                 alt="Card Variations (list view)"
                 width={1000}
                 height={500}
@@ -359,7 +360,7 @@ const CaseStudySkillable: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <Image
-                src="/images/casestudies/skillable/coursecataloggrid.png"
+                src="/images/casestudies/skillable/coursecataloggrid.webp"
                 alt="Course Catalog Grid"
                 width={500}
                 height={500}
@@ -375,7 +376,7 @@ const CaseStudySkillable: React.FC = () => {
               className="text-center"
             >
               <Image
-                src="/images/casestudies/skillable/coursecataloglist.png"
+                src="/images/casestudies/skillable/coursecataloglist.webp"
                 alt="Course Catalog List View"
                 width={500}
                 height={500}
@@ -389,7 +390,7 @@ const CaseStudySkillable: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Skillable's users are now able to browse, filter and sort available courses to find their own interest or study. We've added more features than competing TMS platforms currently offer, and we've done it in such a way that we can reuse the design for other listing pages, as well as intermingle cards for Learning Paths and Courses together which solves another need.
+                Skillable&apos;s users are now able to browse, filter and sort available courses to find their own interest or study. We&apos;ve added more features than competing TMS platforms currently offer, and we&apos;ve done it in such a way that we can reuse the design for other listing pages, as well as intermingle cards for Learning Paths and Courses together which solves another need.
               </p>
             </div>
             <motion.div
@@ -399,7 +400,7 @@ const CaseStudySkillable: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <Image
-                src="/images/casestudies/skillable/conclusion.png"
+                src="/images/casestudies/skillable/conclusion.webp"
                 alt="Conclusion. Jon is good at UX Design."
                 width={500}
                 height={500}

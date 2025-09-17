@@ -19,13 +19,15 @@ const useInViewAnimation = (threshold = 0.2) => {
       { threshold }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [threshold]);
@@ -51,7 +53,7 @@ const CaseStudySharpen: React.FC = () => {
           </div>
           <div className="relative w-[200px] aspect-square">
             <Image
-              src="/images/casestudies/CaseStudySharpenActive.png"
+              src="/images/casestudies/CaseStudySharpenActive.webp"
               alt="sharpen Case Study"
               fill
               style={{ objectFit: "contain" }}
@@ -66,7 +68,7 @@ const CaseStudySharpen: React.FC = () => {
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Introduction</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Sharpen's CCaaS software cuts through the noise with user-centric design and innovative features.  Enhanced communication channels and productivity tools streamline operations, elevate customer interactions, and boost agent performance – all driven by prioritizing user feedback. This sets a new standard for contact center excellence.</p>
+            Sharpen&apos;s CCaaS software cuts through the noise with user-centric design and innovative features.  Enhanced communication channels and productivity tools streamline operations, elevate customer interactions, and boost agent performance – all driven by prioritizing user feedback. This sets a new standard for contact center excellence.</p>
         </section>
 
         {/* Requirements Gathering Section */}
@@ -74,9 +76,9 @@ const CaseStudySharpen: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">Requirements Gathering</h2>
-              <p className="text-muted-foreground leading-relaxed">Before we can determine the Minimum Viable Product (MVP) we have to understand our requirements.  In this case we're able to start with the limitations of our current system, what we can report on based on what information is stored in the database.  With that in mind, we group those concepts and break them down into a process.</p>
-              <p className="text-muted-foreground leading-relaxed">When building a report, we can be sure that you'll want to report on a specific group of users, for a specific period of time, and that you'll want some (or all) of the details we've collected in the database.  We can also be sure that nobody wants to be confused or do more work than necessary.</p>
-              <p className="text-muted-foreground leading-relaxed">This is a depiction of the database fields that we're able to use, when the target group has been selected.  To choose the group we're reporting on, we can divide the groups by purpose, to make the selection more direct.</p>
+              <p className="text-muted-foreground leading-relaxed">Before we can determine the Minimum Viable Product (MVP) we have to understand our requirements.  In this case we&apos;re able to start with the limitations of our current system, what we can report on based on what information is stored in the database.  With that in mind, we group those concepts and break them down into a process.</p>
+              <p className="text-muted-foreground leading-relaxed">When building a report, we can be sure that you&apos;ll want to report on a specific group of users, for a specific period of time, and that you&apos;ll want some (or all) of the details we&apos;ve collected in the database.  We can also be sure that nobody wants to be confused or do more work than necessary.</p>
+              <p className="text-muted-foreground leading-relaxed">This is a depiction of the database fields that we&apos;re able to use, when the target group has been selected.  To choose the group we&apos;re reporting on, we can divide the groups by purpose, to make the selection more direct.</p>
             </div>
             <motion.div
               ref={refRequirementsGathering}
@@ -86,7 +88,7 @@ const CaseStudySharpen: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/sharpen/requirementsgathering.png"
+                src="/images/casestudies/sharpen/requirementsgathering.webp"
                 alt="Requirementes Gathering"
                 fill
                 style={{ objectFit: "contain" }}
@@ -117,7 +119,7 @@ const CaseStudySharpen: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/sharpen/DefiningTheFlow.png"
+                src="/images/casestudies/sharpen/DefiningTheFlow.webp"
                 alt="Defining the Flow"
                 fill
                 style={{ objectFit: "contain" }}
@@ -142,7 +144,7 @@ const CaseStudySharpen: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/sharpen/ReportingMadeSimple.png"
+                src="/images/casestudies/sharpen/ReportingMadeSimple.webp"
                 alt="Reporting Made Simple"
                 fill
                 style={{ objectFit: "contain" }}
@@ -156,7 +158,7 @@ const CaseStudySharpen: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">Diving Deeper into Analytics</h2>
-              <p className="text-muted-foreground leading-relaxed">Ensuring quality communications doesn't stop with call length and other numeric data.  We want to be able to review those calls, and understand what happened.</p>
+              <p className="text-muted-foreground leading-relaxed">Ensuring quality communications doesn&apos;t stop with call length and other numeric data.  We want to be able to review those calls, and understand what happened.</p>
               <p className="text-muted-foreground leading-relaxed">Because there may be long pauses for various reasons, or increased volume indicating heated interaction, I built in a waveform visualizer.  The user can easily see where the line was silent, or where shouting begins.  This makes the review process remarkably faster and therefore more reviews can occur ensuring quality overall.</p>
             </div>
             <motion.div
@@ -167,7 +169,7 @@ const CaseStudySharpen: React.FC = () => {
               className="relative aspect-video"
             >
         <Image
-          src="/images/casestudies/sharpen/WaveformAnalytics.png"
+          src="/images/casestudies/sharpen/WaveformAnalytics.webp"
           alt="Waveform Analytics"
           fill
           style={{ objectFit: "contain" }}
@@ -179,7 +181,7 @@ const CaseStudySharpen: React.FC = () => {
         {/* Conclusion Section */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Conclusion</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">Call Centers using Sharpen's CCaaS are able to refine their call quality, easily spotting issues like excessive hold times, heated interactions, and long stretches of wasted time, all of which matters to a quality call center.</p>
+          <p className="text-lg text-muted-foreground leading-relaxed">Call Centers using Sharpen&apos;s CCaaS are able to refine their call quality, easily spotting issues like excessive hold times, heated interactions, and long stretches of wasted time, all of which matters to a quality call center.</p>
           <p className="text-lg text-muted-foreground leading-relaxed">Furthermore our reporting model allows anyone with access the ability to quickly and easily generate reports which can be exported in a variety of formats and shared with stakeholders or added to larger reports for a fuller picture.</p>
         </section>
       </main>

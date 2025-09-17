@@ -5,24 +5,24 @@ import { motion, AnimatePresence } from "framer-motion";
 // Hardcoded array of image objects with descriptions
 const images = [
   {
-    src: "/images/gallery/GeofeedaAccountsNew.png",
+    src: "/images/gallery/GeofeedaAccountsNew.webp",
     title: "Geofeedia Accounts",
     description: "A new user accounts interface designed for enhanced usability and a streamlined onboarding process."
   },
   {
-    src: "/images/gallery/finishline-rebuild.png",
+    src: "/images/gallery/finishline-rebuild.webp",
     title: "Finishline Rebuild",
     description: "A complete redesign of the Finishline website, focusing on improved performance and user experience."
   },
   {
-    src: "/images/gallery/IndigoRebrandNew.png",
+    src: "/images/gallery/IndigoRebrandNew.webp",
     title: "Indigo Rebrand",
     description: "Visual identity and user interface for Indigo, a rebranding project with a modern, elegant aesthetic."
   },
   {
-    src: "/images/gallery/finishline-shoplocal.png",
-    title: "Finishline Shop Local",
-    description: "A feature designed to connect online shoppers with local store inventory, bridging the gap between digital and physical retail."
+    src: "/images/gallery/chex-dashboard.webp",
+    title: "Southern CA Edison Chex Dashboard",
+    description: "A dashboard interface for SCE's control center designed for monitoring data pipelines to help prevent wildfires"
   },
   {
     src: "/images/gallery/SkillableInstructorDashboard.webp",
@@ -30,7 +30,7 @@ const images = [
     description: "A dashboard for instructors to manage labs and track student progress in real-time."
   },
   {
-    src: "/images/gallery/geofeedia-alerts.png",
+    src: "/images/gallery/geofeedia-alerts.webp",
     title: "Geofeedia Alerts",
     description: "An alert system UI for real-time notifications based on location-based data feeds."
   },
@@ -76,7 +76,7 @@ const Snapshots = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-slate-50 p-4 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center bg-indigo-100 p-4 overflow-hidden">
       <div className="w-full max-w-4xl mx-auto grid grid-cols-3 gap-2">
         {images.map((image, index) => {
           const cardVariants = {
@@ -100,7 +100,7 @@ const Snapshots = () => {
                 alt={image.title}
                 fill
                 sizes="(max-width: 768px) 33vw, 33vw"
-                objectFit="cover"
+                style={{ objectFit: "cover" }}
                 quality={75}
               />
             </motion.div>
@@ -126,7 +126,7 @@ const Snapshots = () => {
             >
                 <button
                 onClick={handleCloseModal}
-                className="absolute -top-4 -right-4 w-10 h-10 flex items-center justify-center bg-gray-700 text-white rounded-full text-3xl font-bold border-4 border-white pb-1"
+                className="absolute -top-4 -right-4 w-10 h-10 flex items-center justify-center  bg-gray-700 text-white rounded-full text-3xl font-bold border-4 border-white pb-1"
                 aria-label="Close modal"
                 >
                 &times;
@@ -136,7 +136,7 @@ const Snapshots = () => {
                   src={selectedImage.src}
                   alt={selectedImage.title}
                   fill
-                  objectFit="contain"
+                  style={{ objectFit: "contain" }}
                   quality={90}
                 />
               </div>

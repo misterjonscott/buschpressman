@@ -13,19 +13,19 @@ const recommendations = [
     name: "Wayne Klapwyk",
     position: "Technical Product Manager at Skillable",
     text: "Jon is a thorough professional. He can take a project on spec and build out exactly what you are looking for or, if you prefer, can go totally creative and produce designs that are modern, innovative, and exactly what you need. His ability to work with you is something you just don't see every day. Give Jon a ring and ask him about what makes him tick. You won't be disappointed.",
-    imageUrl: "/images/recommendations/wayne.jpg",
+    imageUrl: "/images/recommendations/wayne.webp",
   },
   {
     name: "Heidi Gonzales",
     position: "Senior Experience Specialist at Center for Internet Security",
     text: "I have had the pleasure of working with Jon for two years. He's creative, dedicated and conscientious. When we collaborate on projects, he listens intently to determine project needs and delivers exceptional work efficiently and effectively. He grasps the big picture while capturing the details. That keen understanding sets Jon’s work apart and makes him a joy to partner on projects with. I feel fortunate to have had the opportunity to work with Jon. He is exceptionally talented.",
-    imageUrl: "/images/recommendations/heidi.jpg",
+    imageUrl: "/images/recommendations/heidi.webp",
   },
   {
     name: "David Johnson",
     position: "Growth Product Manager",
     text: "Jonathon is one of the most dynamic software engineers I've had the privilege of working alongside. Intelligent, thoughtful, and thorough: Jon seeks to understand and solve problems efficiently and effectively. Always willing to fight for what's right and always willing to go the extra mile. Combining cutting-edge frontend practices with a strong design background, I'd recommend Jon for any software development problem or project!",
-    imageUrl: "/images/recommendations/David.jpg",
+    imageUrl: "/images/recommendations/David.webp",
   },
 ];
 
@@ -80,8 +80,8 @@ const Recommendations = () => {
     >
       <div
         className={`
-          ${isMobile ? "flex-col pt-[40%]" : "flex-row h-full"}
-          flex justify-center items-center mx-5 gap-5
+          ${isMobile ? "flex-col pt-[40%]" : "flex-row h-full items-start"}
+          flex justify-center mx-5 gap-5 items-start 
         `}
       >
         {isMobile ? (
@@ -121,7 +121,6 @@ const Recommendations = () => {
           recommendations.map((rec, index) => (
             <motion.div
               key={index}
-              variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}

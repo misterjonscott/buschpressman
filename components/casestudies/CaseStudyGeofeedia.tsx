@@ -19,13 +19,15 @@ const useInViewAnimation = (threshold = 0.2) => {
       { threshold }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [threshold]);
@@ -53,7 +55,7 @@ const CaseStudyGeofeedia: React.FC = () => {
           </div>
           <div className="relative w-[200px] aspect-square">
             <Image
-              src="/images/casestudies/CaseStudyGeofeediaActive.png"
+              src="/images/casestudies/CaseStudyGeofeediaActive.webp"
               alt="Geofeedia Case Study"
               fill
               style={{ objectFit: "contain" }}
@@ -78,7 +80,7 @@ const CaseStudyGeofeedia: React.FC = () => {
           <div className="flex justify-center">
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
-                src="/images/casestudies/geofeedia/geofeediaMain.png"
+                src="/images/casestudies/geofeedia/geofeediaMain.webp"
                 alt="Geofeedia overview"
                 fill
                 style={{ objectFit: "contain" }}
@@ -100,7 +102,7 @@ const CaseStudyGeofeedia: React.FC = () => {
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">Data Manager</h2>
               <p className="text-muted-foreground leading-relaxed">
-                This interface was designed to manage users' saved locations,
+                This interface was designed to manage users&apos; saved locations,
                 event recordings, and other collections of data.
               </p>
               <p className="text-muted-foreground leading-relaxed">
@@ -120,7 +122,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/geofeedia/dataManager.png"
+                src="/images/casestudies/geofeedia/dataManager.webp"
                 alt="Data Manager"
                 fill
                 style={{ objectFit: "contain" }}
@@ -140,7 +142,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               className="relative aspect-video md:order-first"
             >
               <Image
-                src="/images/casestudies/geofeedia/accountManager.png"
+                src="/images/casestudies/geofeedia/accountManager.webp"
                 alt="Account Manager"
                 fill
                 style={{ objectFit: "contain" }}
@@ -184,7 +186,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/geofeedia/accountImpersonation.png"
+                src="/images/casestudies/geofeedia/accountImpersonation.webp"
                 alt="Account Impersonation"
                 fill
                 style={{ objectFit: "contain" }}
@@ -212,7 +214,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/geofeedia/userEdit.png"
+                src="/images/casestudies/geofeedia/userEdit.webp"
                 alt="User Editing"
                 fill
                 style={{ objectFit: "contain" }}
@@ -225,7 +227,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               className="relative aspect-video"
             >
               <Image
-                src="/images/casestudies/geofeedia/roleEdit.png"
+                src="/images/casestudies/geofeedia/roleEdit.webp"
                 alt="Role Editing"
                 fill
                 style={{ objectFit: "contain" }}
@@ -241,7 +243,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               Sharing your View
             </h2>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-              Because Geofeedia's tool was intended to watch over geographic
+              Because Geofeedia&apos;s tool was intended to watch over geographic
               areas, we made it possible to share locations which were defined
               by shapes drawn on the map. The user could bulk add invitations by
               permission level, and easily manage existing access to shared
@@ -259,7 +261,7 @@ const CaseStudyGeofeedia: React.FC = () => {
           >
             <div className="relative w-full max-w-4xl aspect-video">
               <Image
-                src="/images/casestudies/geofeedia/shareLocation.png"
+                src="/images/casestudies/geofeedia/shareLocation.webp"
                 alt="Location Sharing"
                 fill
                 style={{ objectFit: "contain" }}
@@ -273,7 +275,7 @@ const CaseStudyGeofeedia: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold">Conclusion</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             The successful development of Account and Data management, along
-            with Account impersonation functionalities, underscored Geofeedia's
+            with Account impersonation functionalities, underscored Geofeedia&apos;s
             commitment to providing comprehensive and user-friendly solutions
             for location-based social media monitoring. By prioritizing
             simplicity, accessibility, and security in the design of its

@@ -9,21 +9,21 @@ const features = [
   {
     icon: UserRound,
     title: "User Research",
-    description: "Insight to Impact: I unearth critical user truths that fuel winning product strategies and deliver undeniable clarity for user-centric innovation.",
+    description: "My natural curiosity and empathy help me uncover critical details that lead to winning product strategies.",
     color: "bg-purple-600/50",
     inputRange: [0.4, 0.5, 0.6],
   },
   {
     icon: Brush,
     title: "UI Design",
-    description: "Intuitive Engagement, Measurable Results: I architect seamless user journeys, rapidly validate designs, and deliver UX that drives tangible business outcomes.",
+    description: "I design seamless user journeys, rapidly validate designs, and deliver UX that drives tangible business outcomes.",
     color: "bg-purple-600/50",
     inputRange: [0.45, 0.55, 0.65],
   },
   {
     icon: Code,
     title: "Development",
-    description: "Scalable UI Excellence: I build robust front-end systems, enforce uncompromising UI standards, and empower teams to deliver high-performing, stunning solutions.",
+    description: "I build robust front-end systems, enforce uncompromising UI standards, and empower teams to deliver stunning solutions.",
     color: "bg-purple-600/50",
     inputRange: [0.5, 0.6, 0.7],
   },
@@ -46,17 +46,20 @@ const About = () => {
     >
       <div className="flex flex-row items-center text-center gap-4 pb-8 max-w-[60%] mx-auto">
         <Image
-          src="/images/sardino.png"
+          src="/images/jon-scott.webp"
           width={200}
           height={200}
           alt="Picture of the author"
           className="rounded-full flex-none"
         />
-        <p className="mt-4 flex-1 text-2xl">
-          UX/UI Leader: Delivering impactful realities from bold ideas, empowering teams to redefine user engagement.
-        </p>
+        <div className="text-left">
+          <h1 className="text-5xl">UX/UI Leader</h1>
+          <p className="mt-4 flex-1 text-2xl">
+            My 20 years in UI engineering and 10 in UX design transform bold visions into impactful, accessible interfaces that drive peak user engagement. 🚀
+          </p>
+        </div>
       </div>
-      <div className="container max-w-[80%] mx-auto px-4">
+      <div className="container max-w-[80%] mx-auto px-4 py-16">
         <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-start justify-center">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
