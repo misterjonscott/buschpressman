@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig: NextConfig = {
-  // Your other Next.js config options here
+  // output: 'export'
 };
 
 export default withBundleAnalyzer(nextConfig);

@@ -60,7 +60,7 @@ const Home = () => {
   ]);
   
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }} className='h-full'>
       <Header currentSection={currentSection} setCurrentSection={setCurrentSection} />
       <section id="home" ref={homeRef} className="relative">
         <SplashScreen />

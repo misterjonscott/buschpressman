@@ -88,6 +88,28 @@ const caseStudies: CaseStudy[] = [
   },
 ];
 
+// Animation variants for the container and children
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Stagger delay for each child
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.9, filter: 'grayscale(100%)' },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: 'grayscale(100%)',
+    transition: { duration: 0.5 },
+  },
+  hover: { scale: 1.05, filter: 'grayscale(0%)', transition: { duration: 0.2 } },
+};
+
 const Projects: React.FC = () => {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
 
@@ -101,32 +123,24 @@ const Projects: React.FC = () => {
     document.body.style.overflow = 'unset'; // Re-enable main page scroll
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9, filter: 'grayscale(100%)' },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      filter: 'grayscale(100%)',
-      transition: { duration: 0.5, delay: 0.05 },
-    },
-    hover: { scale: 1.05, filter: 'grayscale(0%)', transition: { duration: 0.2 } },
-  };
-
   const CaseStudyComponent = selectedCaseStudy?.component;
 
   return (
     <div className="min-h-screen flex items-center justify-center p-8" style={{ backgroundColor: '#22223b' }}>
       <div className="w-full max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }} // Reduced amount to trigger animation sooner
+        >
           {caseStudies.map((study) => (
             <motion.div
               key={study.id}
               className="relative w-full cursor-pointer shadow-lg rounded-xl"
               style={{ aspectRatio: '314 / 119' }} // Maintain true aspect ratio
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible" // Animate on scroll into view
-              viewport={{ once: true, amount: 0.5 }}
+              variants={itemVariants}
               whileHover="hover"
               onClick={() => handleOpenModal(study)}
             >
@@ -140,7 +154,7 @@ const Projects: React.FC = () => {
               />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <AnimatePresence>

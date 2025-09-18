@@ -25,7 +25,7 @@ const recommendations = [
     name: "David Johnson",
     position: "Growth Product Manager",
     text: "Jonathon is one of the most dynamic software engineers I've had the privilege of working alongside. Intelligent, thoughtful, and thorough: Jon seeks to understand and solve problems efficiently and effectively. Always willing to fight for what's right and always willing to go the extra mile. Combining cutting-edge frontend practices with a strong design background, I'd recommend Jon for any software development problem or project!",
-    imageUrl: "/images/recommendations/David.webp",
+    imageUrl: "/images/recommendations/david.webp",
   },
 ];
 
@@ -74,27 +74,26 @@ const Recommendations = () => {
 
   return (
     <div
-      ref={sectionRef}
-      id="recommendations" // Added ID for navigation
-      className="section-container relative bg-blue min-h-screen p-5 flex flex-col justify-center bg-slate-100"
-    >
-      <div
-        className={`
-          ${isMobile ? "flex-col pt-[40%]" : "flex-row h-full items-start"}
-          flex justify-center mx-5 gap-5 items-start 
-        `}
-      >
+  ref={sectionRef}
+  className="section-container relative bg-blue min-h-screen flex flex-col justify-center items-center bg-slate-100 p-4"
+>
+  <div
+    className={`
+      ${isMobile ? "flex-col" : "flex-row"}
+      flex justify-center mx-5 gap-5
+    `}
+  >
         {isMobile ? (
           <motion.div
             key={currentIndex} // Key change forces re-render and animation
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-full relative mt-16 border-3 border-white"
+            className="w-full relative mt-4 "
           >
-            <Card className="w-full relative mt-16 border-3 border-white">
-              <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
-                <div className="relative w-32 h-32 rounded-full border-3 border-white overflow-hidden">
+            <Card className="w-full relative mt-4 ">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="relative w-32 h-32 rounded-full  overflow-hidden">
                   <Image
                     src={recommendations[currentIndex].imageUrl}
                     alt={recommendations[currentIndex].name}
@@ -124,10 +123,10 @@ const Recommendations = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
-              className="flex-1 relative border-3 border-white"
+              className="flex-1 relative"
             >
-              <Card className="flex-1 relative border-3 border-white">
-                <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
+              <Card className="flex-1 relative">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <AvatarCircles
                     imageUrl={rec.imageUrl}
                     alt={rec.name}
