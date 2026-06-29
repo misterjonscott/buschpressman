@@ -44,22 +44,22 @@ const About = () => {
       id="about" // Add ID for navigation
       className="section-container relative min-h-screen flex items-center justify-center flex-col" 
     >
-      <div className="flex flex-row items-center text-center gap-4 pb-8 max-w-[60%] mx-auto">
+      <div className="flex flex-col md:flex-row items-center text-center gap-4 pb-8 max-w-[90%] md:max-w-[60%] mx-auto">
         <Image
           src="/images/jon-scott.webp"
           width={200}
           height={200}
           alt="Picture of the author"
-          className="rounded-full flex-none"
+          className="rounded-full flex-none max-w-[40%] md:max-w-full"
         />
         <div className="text-left">
-          <h1 className="text-5xl">UX/UI Leader</h1>
-          <p className="mt-4 flex-1 text-2xl">
+          <h1 className="text-5xl">Staff Design Engineer & UX Architect</h1>
+            <p className="mt-4 flex-1 text-l md:text-2xl">
             My 20 years in UI engineering and 10 in UX design transform bold visions into impactful, accessible interfaces that drive peak user engagement. 🚀
-          </p>
+            </p>
         </div>
       </div>
-      <div className="container max-w-[80%] mx-auto px-4 py-16">
+      <div className="container max-w-[80%] mx-auto px-4 py-4 md:py-16">
         <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-start justify-center">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
@@ -72,9 +72,9 @@ const About = () => {
             return (
               <div 
                 key={index}
-                className="relative flex flex-col items-center text-center p-4 rounded-lg bg-card/50 hover:bg-card/75 transition-colors w-full md:w-1/3 h-full"
+                className="relative flex flex-col items-center text-center p-2 rounded-lg bg-card/50 hover:bg-card/75 transition-colors w-full md:w-1/3 h-full"
               >
-                <div className="relative mb-2 flex flex-col items-center justify-center">
+                <div className="relative mb-2 md:flex flex-col items-center justify-center hidden">
                   <motion.div style={{ scale: iconScale }}>
                     <IconComponent className="h-8 w-8 text-primary" aria-hidden="true" />
                   </motion.div>
@@ -83,7 +83,10 @@ const About = () => {
                     className={`absolute h-16 w-16 ${feature.color} rounded-full transform -translate-x-1/2 -translate-y-1/2`}
                   />
                 </div>
-                <h3 className="text-3xl font-medium pacifico-font text-foreground">{feature.title}</h3>
+                <div className="flex flex-row md:flex-col items-center space-x-2">
+                  <IconComponent className="h-8 w-8 text-primary md:hidden" aria-hidden="true" />
+                  <h3 className="text-3xl font-medium offside-font text-foreground">{feature.title}</h3>
+                </div>
                 <p className="text-sm text-muted-foreground mt-1">{feature.description}</p>
               </div>
             );

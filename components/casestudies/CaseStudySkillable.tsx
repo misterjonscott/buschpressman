@@ -54,7 +54,7 @@ const CaseStudySkillable: React.FC = () => {
       <header className="relative bg-gradient-to-br from-blue-600 to-purple-700 text-white py-1 px-6 rounded-lg">
         <div className="mx-auto flex items-center justify-between">
           <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 pacifico-font">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 offside-font">
               Course Library
             </h1>
           </div>
@@ -74,7 +74,7 @@ const CaseStudySkillable: React.FC = () => {
       <main className="max-w-6xl mx-auto px-6 py-16 space-y-16">
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Introduction</h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Skillable TMS needed a UX refresh to compete. As a UX engineer, I championed user feedback and online learning trends. We revamped browsing with grid/list views for choice, and empowered learners with new filters: Favorites, Review Ratings & Current Status. These let users personalize their journey, make informed decisions, and track progress seamlessly. Boom! Happy learners, happy Skillable.
           </p>
         </section>
@@ -83,10 +83,10 @@ const CaseStudySkillable: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold">Competitive Analysis</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Because there are many existing TMS platforms, that people are already using and familiar with, we should reference what&apos;s already working in the market. We&apos;ll take note of what features and controls each competitor has before deciding if it suits our needs.
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 In this case, I discovered that most TMS platforms included filtering options, but the options are overwhelming and occupy too much space. Furthermore, each TMS displayed a matrix of courses, but few offered control over their display or pagination.
               </p>
             </div>
@@ -110,7 +110,7 @@ const CaseStudySkillable: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold">Initial Draft</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 We knew we wanted to support a grid and list layout, as well as pagination, and view controls. In this step, we rough out what the grid page looks like, and find the best placement for the pagination and display controls.
               </p>
               <motion.div
@@ -146,7 +146,7 @@ const CaseStudySkillable: React.FC = () => {
 
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Advanced Filtering (with layers)</h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Our competitive analysis demonstrated that effective filtering occupies a large amount of screen space. This advanced filtering concept was my solution to conserve space, while making the process easy to use and understand.
           </p>
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -170,7 +170,7 @@ const CaseStudySkillable: React.FC = () => {
                 />
               </motion.div>
               <div className="p-4 border-2 border-purple-600 rounded-lg">
-                <ul className="text-gray-600 leading-relaxed list-disc list-inside space-y-2">
+                <ul className="text-muted-foreground leading-relaxed list-disc list-inside space-y-2">
                   <li>When Filter Options is clicked, the Filter Options button gets a bottom arrow to show it&apos;s expanded, and the Add New button appears, already active and ready.</li>
                   <li>Total count of favorites is displayed. If there are not favorites, don&apos;t display.</li>
                   <li>Favorites and Review Rating are standard, other filter categories are dynamic, based on available results.</li>
@@ -196,7 +196,7 @@ const CaseStudySkillable: React.FC = () => {
                 />
               </motion.div>
               <div className="p-4 border-2 border-purple-600 rounded-lg">
-                <ul className="text-gray-600 leading-relaxed list-disc list-inside space-y-2">
+                <ul className="text-muted-foreground leading-relaxed list-disc list-inside space-y-2">
                   <li>When a filter category is chosen, the submenu appears.</li>
                   <li>The user may make more than one selection, and can then click Apply, or click outside of the filtering element.</li>
                   <li>If the user clicks outside of this menu without a selection, the display will revert to the Add New button without automatically popping the submenu.</li>
@@ -228,7 +228,7 @@ const CaseStudySkillable: React.FC = () => {
                 />
               </motion.div>
               <div className="p-4 border-2 border-purple-600 rounded-lg">
-                <ul className="text-gray-600 leading-relaxed list-disc list-inside space-y-2">
+                <ul className="text-muted-foreground leading-relaxed list-disc list-inside space-y-2">
                   <li>When Filter is chosen, the filter&apos;s controller appears, populated with the choice or choices (if allowed).</li>
                   <li>the user can click to edit their choices (using the same menu as they chose to select them, or remove that filter using the X button. They can also add another filter at this stage.</li>
                   <li>When editing a filter, the currently selected choices should be anchored to the top of the list.</li>
@@ -277,7 +277,7 @@ const CaseStudySkillable: React.FC = () => {
                 />
               </motion.div>
               <div className="p-4 border-2 border-purple-600 rounded-lg">
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   If many filters are chosen, and we run out of screen width, the filter controls and Add New button should wrap to the next line.
                 </p>
               </div>
@@ -298,7 +298,7 @@ const CaseStudySkillable: React.FC = () => {
                 />
               </motion.div>
               <div className="p-4 border-2 border-purple-600 rounded-lg">
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   Clicking Filter Options when the filters are populated will hide the filter controls, and remove the downward arrow from the Filter Options button, while retaining the overall count of selected filter categories. Clicking this button again will show the filters as before.
                 </p>
               </div>
@@ -367,7 +367,7 @@ const CaseStudySkillable: React.FC = () => {
               />
             </motion.div>
             <div>
-              <p className="text-gray-600 leading-relaxed">With the card design complete, we can update the layout with the new cards.</p>
+              <p className="text-muted-foreground leading-relaxed">With the card design complete, we can update the layout with the new cards.</p>
             </div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -389,7 +389,7 @@ const CaseStudySkillable: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold">Conclusion</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Skillable&apos;s users are now able to browse, filter and sort available courses to find their own interest or study. We&apos;ve added more features than competing TMS platforms currently offer, and we&apos;ve done it in such a way that we can reuse the design for other listing pages, as well as intermingle cards for Learning Paths and Courses together which solves another need.
               </p>
             </div>

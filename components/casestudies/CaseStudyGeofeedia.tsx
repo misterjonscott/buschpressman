@@ -49,7 +49,7 @@ const CaseStudyGeofeedia: React.FC = () => {
       <header className="relative bg-gradient-to-br from-blue-600 to-purple-700 text-white py-1 px-6 rounded-lg">
         <div className="mx-auto flex items-center justify-between">
           <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 pacifico-font">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 offside-font">
               Data Management
             </h1>
           </div>
@@ -65,81 +65,88 @@ const CaseStudyGeofeedia: React.FC = () => {
         </div>
       </header>
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 py-16 space-y-16">
+      <main className="max-w-6xl mx-auto px-6 py-16 space-y-8">
         {/* Introduction Section */}
-        <section className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold">Introduction</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Geofeedia was a platform that monitored social media based on
-            location. It let users access and analyze posts, images, and videos
-            from specific areas in real time. Organizations like law
-            enforcement, government agencies, and businesses used it for event
-            monitoring, emergency response, market research, and brand
-            management.
-          </p>
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-4xl aspect-video">
-              <Image
-                src="/images/casestudies/geofeedia/geofeediaMain.webp"
-                alt="Geofeedia overview"
-                fill
-                style={{ objectFit: "contain" }}
-              />
+        <section>
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold">Introduction</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Geofeedia was a platform that monitored social media based on
+              location. It let users access and analyze posts, images, and videos
+              from specific areas in real time. Organizations like law
+              enforcement, government agencies, and businesses used it for event
+              monitoring, emergency response, market research, and brand
+              management.
+            </p>
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-4xl aspect-video">
+                <Image
+                  src="/images/casestudies/geofeedia/geofeediaMain.webp"
+                  alt="Geofeedia overview"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
             </div>
           </div>
         </section>
 
         {/* Project Overview Section */}
-        <section className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold">Project Overview</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            This project aims to create an intuitive UI that effectively manages complex data while ensuring scalability for increased users and data loads. The focus is on minimalist design principles, featuring clear hierarchy, spacious layouts, and concise labels to reduce clutter. Intuitive navigation, including well-organized menus and context-sensitive actions, enhances user interactions. Continuous refinement based on user feedback ensures the UI remains user-centered and adaptable to evolving needs.
-          </p>
+        <section>
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold">Project Overview</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              We aim to create an intuitive UI that manages complex data and scales for more users and data. The focus is on minimalist design principles, featuring clear hierarchy, spacious layouts, and concise labels to reduce clutter. Intuitive navigation, including well-organized menus and context-sensitive actions, improves user experience. Continuous refinement based on user feedback ensures the UI remains user-centered and adaptable to evolving needs.
+            </p>
+          </div>
         </section>
+
         {/* Data Manager Section */}
-        <section className="space-y-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Data Manager</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                This interface was designed to manage users&apos; saved locations,
-                event recordings, and other collections of data.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                The design shows all key datapoints, hiding an actions menu
-                behind a kebab for visual simplicity.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                We wanted to provide the end user with as much information and
-                action as possible, without cluttering the screen.
-              </p>
+        <section>
+          <div className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold">Data Manager</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  This interface was designed to manage users&apos; saved locations,
+                  event recordings, and other collections of data.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  The design shows all key datapoints, hiding an actions menu
+                  behind a kebab for visual simplicity.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  We wanted to provide the end user with as much information and
+                  action as possible, without cluttering the screen.
+                </p>
+              </div>
+              <motion.div
+                ref={refDataManager}
+                initial={{ opacity: 0 }}
+                animate={dataManagerIsInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.8 }}
+                className="relative aspect-square"
+              >
+                <Image
+                  src="/images/casestudies/geofeedia/dataManager.webp"
+                  alt="Data Manager"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </motion.div>
             </div>
-            <motion.div
-              ref={refDataManager}
-              initial={{ opacity: 0 }}
-              animate={dataManagerIsInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8 }}
-              className="relative aspect-video"
-            >
-              <Image
-                src="/images/casestudies/geofeedia/dataManager.webp"
-                alt="Data Manager"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </motion.div>
           </div>
         </section>
 
         {/* Account Manager Section */}
-        <section className="space-y-8">
+        <section>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <motion.div
               ref={refAccountManager}
               initial={{ opacity: 0 }}
               animate={accountManagerIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
-              className="relative aspect-video md:order-first"
+              className="relative aspect-square md:order-first"
             >
               <Image
                 src="/images/casestudies/geofeedia/accountManager.webp"
@@ -165,7 +172,7 @@ const CaseStudyGeofeedia: React.FC = () => {
         </section>
 
         {/* Account Impersonation Section */}
-        <section className="space-y-8">
+        <section>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">
@@ -183,7 +190,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={accountImpersonationIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
-              className="relative aspect-video"
+              className="relative aspect-square"
             >
               <Image
                 src="/images/casestudies/geofeedia/accountImpersonation.webp"
@@ -196,7 +203,7 @@ const CaseStudyGeofeedia: React.FC = () => {
         </section>
 
         {/* Users and Roles Section */}
-        <section className="space-y-8">
+        <section>
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">Users and Roles</h2>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto">
@@ -211,7 +218,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={usersAndRolesIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
-              className="relative aspect-video"
+              className="relative aspect-square"
             >
               <Image
                 src="/images/casestudies/geofeedia/userEdit.webp"
@@ -224,7 +231,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={usersAndRolesIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
-              className="relative aspect-video"
+              className="relative aspect-square"
             >
               <Image
                 src="/images/casestudies/geofeedia/roleEdit.webp"
@@ -237,7 +244,7 @@ const CaseStudyGeofeedia: React.FC = () => {
         </section>
 
         {/* Sharing Section */}
-        <section className="space-y-8">
+        <section>
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">
               Sharing your View
@@ -271,9 +278,9 @@ const CaseStudyGeofeedia: React.FC = () => {
         </section>
 
         {/* Conclusion Section */}
-        <section className="space-y-6">
+        <section>
           <h2 className="text-3xl md:text-4xl font-bold">Conclusion</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             The successful development of Account and Data management, along
             with Account impersonation functionalities, underscored Geofeedia&apos;s
             commitment to providing comprehensive and user-friendly solutions

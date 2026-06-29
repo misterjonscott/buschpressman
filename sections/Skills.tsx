@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -83,6 +83,18 @@ const Skills: React.FC = () => {
     });
   }, []);
 
+  // Hide tooltip on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setTooltipContent(null);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <section
       id="skills"
@@ -97,20 +109,20 @@ const Skills: React.FC = () => {
         variants={containerVariants}
       >
         <motion.p
-          className="text-black font-bold tracking-widest text-center pacifico-font text-2xl md:text-6xl mb-12"
+          className="text-black font-bold tracking-widest text-center offside-font text-2xl md:text-6xl mb-12"
           variants={textVariants}
         >
-          Hover to learn more
+          {typeof window !== 'undefined' && window.innerWidth <= 768 ? 'Click to learn more' : 'Hover to learn more'}
         </motion.p>
         
-        <div className="flex justify-center flex-wrap gap-8 sm:gap-12 md:gap-16 w-full">
+        <div className="flex justify-center flex-wrap gap-4 sm:gap-12 md:gap-16 w-full">
           {items.map((item) => (
             <motion.div
               key={item.id}
               variants={itemVariants}
             >
               <Button
-                className="group bg-transparent p-0 h-28 w-28 hover:bg-transparent"
+                className="group bg-transparent p-0 h-20 w-20 md:h-28 md:w-28 hover:bg-transparent"
                 onMouseEnter={() => handleMouseEnter(item)}
                 onMouseLeave={handleMouseLeave}
               >
@@ -121,7 +133,7 @@ const Skills: React.FC = () => {
                     className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-125"
                     width={0}
                     height={0}
-                    sizes="(max-width: 768px) 100px, (max-width: 1200px) 150px, 200px"
+                    sizes="(max-width: 768px) 60px, (max-width: 1200px) 150px, 200px"
                   />
                 </div>
               </Button>
@@ -135,7 +147,10 @@ const Skills: React.FC = () => {
           className="fixed z-50 p-4 max-w-xs transition-opacity duration-150 text-foreground shadow-lg
                     bg-white/30 backdrop-blur-sm dark:bg-black/30 border border-white/20 dark:border-black/20"
           style={{
-            left: mousePosition.x + 20,
+            left:
+              mousePosition.x + 220 > window.innerWidth // Check if tooltip would overflow on the right
+                ? mousePosition.x - 220 // Position on the left if it overflows
+                : mousePosition.x + 20, // Default position on the right
             top: mousePosition.y + 20,
             transform: `translateY(${mousePosition.y > window.innerHeight / 2 ? '-100%' : '0'})`,
           }}

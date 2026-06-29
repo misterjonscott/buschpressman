@@ -4,10 +4,9 @@ import React, { useRef, useEffect, useState } from 'react';
 
 // Define the color palettes outside the component.
 const palettes = [
-  ['#D8E2DC', '#FFE5D9', '#FFCAD4', '#F4ACB7', '#9D8189'],
-  ['#5E548E', '#9F86C0', '#BE95C4', '#E0B1CB', '#A680C9'],
   ['#004E98', '#3A6EA5', '#88BBD6', '#FF6700', '#FFC94B'],
-  ['#355070', '#6D597A', '#B56576', '#E56B6F', '#EAAC8B'],
+  ['#70d6ff', '#ff70a6', '#ff9770', '#ffd670', '#e9ff70'],
+  ['#9b5de5', '#f15bb5', '#fee440', '#00bbf9', '#00f5d4']
 ];
 
 // Define types for points and circle properties

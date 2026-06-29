@@ -37,7 +37,7 @@ const CaseStudyViewer: React.FC<CaseStudyViewerProps> = ({ content, onClose }) =
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-0 text-2xl font-bold text-gray-700 hover:text-red-500 transition-colors"
+          className="absolute top-4 right-4 p-0 text-2xl font-bold text-gray-700 hover:text-red-500 transition-colors z-10 bg-white rounded-lg"
           aria-label="Close modal"
         >
           <X size={32} />
@@ -128,6 +128,7 @@ const Projects: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center p-8" style={{ backgroundColor: '#22223b' }}>
       <div className="w-full max-w-6xl mx-auto">
+        <h1 className='offside-font text-5xl text-center pb-4 text-white'>Case Studies</h1>
         <motion.div
           className="grid grid-cols-2 md:grid-cols-3 gap-6"
           variants={containerVariants}

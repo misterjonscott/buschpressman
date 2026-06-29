@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Pacifico, Lato, Bebas_Neue } from "next/font/google";
+import { Pacifico, Lato, Bebas_Neue, Offside} from "next/font/google";
 import "./globals.css";
 
 const pacifico = Pacifico({
@@ -20,6 +20,13 @@ const bebasNeue = Bebas_Neue({
   weight: "400",
 });
 
+const offside = Offside({
+  variable: "--font-offside",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+
 export const metadata: Metadata = {
   title: "Jon Scott - UX Design and Development",
   description: "The works and a hint of personality of Jon Scott, a UX designer and developer.",
@@ -33,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${pacifico.variable} ${lato.variable} ${bebasNeue.variable} antialiased`}>
+      <body className={`${pacifico.variable} ${lato.variable} ${bebasNeue.variable} ${offside.variable} antialiased`}>
           {children}
       </body>
     </html>

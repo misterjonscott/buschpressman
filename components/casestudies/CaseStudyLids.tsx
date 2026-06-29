@@ -55,7 +55,7 @@ const CaseStudyLids: React.FC = () => {
       <header className="relative bg-gradient-to-br from-blue-600 to-purple-700 text-white py-1 px-6 rounded-lg">
         <div className="mx-auto flex items-center justify-between">
           <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 pacifico-font">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 offside-font">
               Smart Shopping
             </h1>
           </div>
@@ -75,7 +75,7 @@ const CaseStudyLids: React.FC = () => {
         {/* Introduction Section */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Introduction</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Lids, a leading retailer for hats and headwear, caters to a diverse
             audience passionate about expressing themselves through style. In
             2009, we embarked on a project to enhance the online shopping
@@ -107,7 +107,7 @@ const CaseStudyLids: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={checkoutProcess01IsInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.8 }}
-                className="relative aspect-[3/2]"
+                className="relative aspect-square"
               >
                 <Image
                   src="/images/casestudies/lids/checkoutProcess01.webp"
@@ -352,7 +352,7 @@ const CaseStudyLids: React.FC = () => {
         {/* Conclusion Section */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Conclusion</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             This Lids case study demonstrates the power of user-centered design,
             efficient design systems, and data-driven decision making. Through
             these strategies, we were able to significantly enhance the online

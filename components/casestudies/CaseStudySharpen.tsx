@@ -47,7 +47,7 @@ const CaseStudySharpen: React.FC = () => {
       <header className="relative bg-gradient-to-br from-blue-600 to-purple-700 text-white py-1 px-6 rounded-lg">
         <div className="mx-auto flex items-center justify-between">
           <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 pacifico-font">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 offside-font">
               VoIP Analytics
             </h1>
           </div>
@@ -67,7 +67,7 @@ const CaseStudySharpen: React.FC = () => {
         {/* Introduction Section */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Introduction</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Sharpen&apos;s CCaaS software cuts through the noise with user-centric design and innovative features.  Enhanced communication channels and productivity tools streamline operations, elevate customer interactions, and boost agent performance – all driven by prioritizing user feedback. This sets a new standard for contact center excellence.</p>
         </section>
 
@@ -85,7 +85,7 @@ const CaseStudySharpen: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={requirementsGatheringIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
-              className="relative aspect-video"
+              className="relative aspect-square"
             >
               <Image
                 src="/images/casestudies/sharpen/requirementsgathering.webp"
@@ -181,8 +181,8 @@ const CaseStudySharpen: React.FC = () => {
         {/* Conclusion Section */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Conclusion</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">Call Centers using Sharpen&apos;s CCaaS are able to refine their call quality, easily spotting issues like excessive hold times, heated interactions, and long stretches of wasted time, all of which matters to a quality call center.</p>
-          <p className="text-lg text-muted-foreground leading-relaxed">Furthermore our reporting model allows anyone with access the ability to quickly and easily generate reports which can be exported in a variety of formats and shared with stakeholders or added to larger reports for a fuller picture.</p>
+          <p className="text-muted-foreground leading-relaxed">Call Centers using Sharpen&apos;s CCaaS are able to refine their call quality, easily spotting issues like excessive hold times, heated interactions, and long stretches of wasted time, all of which matters to a quality call center.</p>
+          <p className="text-muted-foreground leading-relaxed">Furthermore our reporting model allows anyone with access the ability to quickly and easily generate reports which can be exported in a variety of formats and shared with stakeholders or added to larger reports for a fuller picture.</p>
         </section>
       </main>
     </div>

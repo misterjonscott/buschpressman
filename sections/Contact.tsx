@@ -197,7 +197,7 @@ const Contact: React.FC<ContactProps> = () => {
             className="min-h-screen max-h-screen flex items-center justify-center"
         >
             <div className="w-full">
-                <h2 className="mx-auto mb-8 text-center text-3xl pacifico-font md:mb-16 md:text-6xl">
+                <h2 className="mx-auto mb-8 text-center text-3xl offside-font md:mb-16 md:text-6xl">
                     Let&apos;s get started!
                 </h2>
                 <div className="mx-auto mt-8 flex flex-col gap-8 justify-center items-center px-4 md:flex-row md:items-start">
@@ -213,8 +213,8 @@ const Contact: React.FC<ContactProps> = () => {
 
 const ContactInfo = ({ className }: { className?: string }) => {
     return (
-        <div className={cn("mb-5 flex flex-col items-center", className)}>
-            <div className="relative overflow-hidden rounded-full shadow-lg w-[200px] h-[200px] md:w-[300px] md:h-[300px]">
+        <div className={cn("mb-5 flex flex-col items-center  hidden md:block", className)}>
+            <div className="relative overflow-hidden rounded-full shadow-lg w-[300px] h-[300px]">
                 <Image
                     src="/images/jon-scott.webp"
                     alt="Contact Me Graphic"

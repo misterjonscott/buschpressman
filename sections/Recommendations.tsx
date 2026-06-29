@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import AvatarCircles from "@/components/avatarcircles";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 const recommendations = [
   {
@@ -85,26 +85,23 @@ const Recommendations = () => {
   >
         {isMobile ? (
           <motion.div
-            key={currentIndex} // Key change forces re-render and animation
+            key={currentIndex}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="w-full relative mt-4 "
           >
             <Card className="w-full relative mt-4 ">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="relative w-32 h-32 rounded-full  overflow-hidden">
-                  <Image
-                    src={recommendations[currentIndex].imageUrl}
+              <div className="absolute -top-8 md:-top-4 left-1/2 transform -translate-x-1/2">
+                  <AvatarCircles
+                    imageUrl={recommendations[currentIndex].imageUrl}
                     alt={recommendations[currentIndex].name}
-                    fill
-                    className="object-cover"
+                    scrollYProgress={scrollYProgress}
                   />
-                </div>
               </div>
               <CardContent className="pt-20 pb-4">
                 <div className="text-center">
-                  <h3 className="font-bold">{recommendations[currentIndex].name}</h3>
+                  <h3 className="font-bold text-2xl">{recommendations[currentIndex].name}</h3>
                   <p className="text-sm text-gray-500">{recommendations[currentIndex].position}</p>
                 </div>
                 <div className="flex justify-center mt-2 mb-3">

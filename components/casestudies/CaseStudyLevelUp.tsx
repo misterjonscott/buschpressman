@@ -52,7 +52,7 @@ const CaseStudyLevelUp: React.FC = () => {
       <header className="relative bg-gradient-to-br from-blue-600 to-purple-700 text-white py-1 px-6 rounded-lg">
         <div className="mx-auto flex items-center justify-between">
           <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 pacifico-font">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 offside-font">
               Mobile App Development
             </h1>
           </div>
@@ -72,7 +72,7 @@ const CaseStudyLevelUp: React.FC = () => {
         {/* Introduction Section */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Introduction</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Our mobile app simplifies financial education through intuitive swipe gestures and interactive modules. Users build sound money management skills in budgeting, saving, and investing, guided by personalized recommendations. Extensive user research ensures an engaging and effective learning experience.
           </p>
         </section>
@@ -108,7 +108,7 @@ const CaseStudyLevelUp: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={componentNotationIsInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
-              className="relative aspect-video"
+              className="relative aspect-square"
             >
               <Image
                 src="/images/casestudies/levelup/componentNotation.webp"
@@ -130,7 +130,7 @@ const CaseStudyLevelUp: React.FC = () => {
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">User Journeys: Exploring Different Financial Goals.</h2>
           <p className="text-muted-foreground leading-relaxed">Our app takes you on personalized journeys that unlock financial knowledge step-by-step.  Here&apos;s a glimpse into four key journeys:</p>
-          <p><strong>Determining Your Monthly Income:</strong>  Start with a clear picture! This journey kicks off with a Course Overview explaining the importance of income awareness.  Interactive features like income calculators and illustrated examples guide you through identifying all your income sources.  Wrap up with a personalized breakdown of your monthly inflow, ready for budgeting.</p>
+          <p className="text-muted-foreground leading-relaxed"><strong>Determining Your Monthly Income:</strong>  Start with a clear picture! This journey kicks off with a Course Overview explaining the importance of income awareness.  Interactive features like income calculators and illustrated examples guide you through identifying all your income sources.  Wrap up with a personalized breakdown of your monthly inflow, ready for budgeting.</p>
           <div className="flex justify-center">
             <motion.div
               ref={refDeterminingMonthlyIncome}
@@ -147,7 +147,7 @@ const CaseStudyLevelUp: React.FC = () => {
               />
             </motion.div>
           </div>
-          <p><strong>Explore Budget Tracking Options:</strong> Feeling overwhelmed by budgeting? Not anymore! The &quot;Explore Budget Tracking Options&quot; journey introduces you to various budgeting methods through engaging illustrations and interactive quizzes.  Match your financial personality to the perfect budgeting style, ensuring a comfortable and sustainable approach.  Swipe left for the next step!</p>
+          <p className="text-muted-foreground leading-relaxed"><strong>Explore Budget Tracking Options:</strong> Feeling overwhelmed by budgeting? Not anymore! The &quot;Explore Budget Tracking Options&quot; journey introduces you to various budgeting methods through engaging illustrations and interactive quizzes.  Match your financial personality to the perfect budgeting style, ensuring a comfortable and sustainable approach.  Swipe left for the next step!</p>
           <div className="flex justify-center">
             <motion.div
               ref={refExploreBudgetTrackingOptions}
@@ -164,7 +164,7 @@ const CaseStudyLevelUp: React.FC = () => {
               />
             </motion.div>
           </div>
-          <p><strong>Classifying Needs vs Wants</strong>:  Mastering the art of &quot;needs vs. wants&quot; empowers smart spending. This journey starts with a Course Overview highlighting the difference.  Interactive exercises like sorting games and illustrated scenarios help you categorize expenses effectively.  Conclude by feeling confident in prioritizing your needs and making informed spending decisions.</p>
+          <p className="text-muted-foreground leading-relaxed"><strong>Classifying Needs vs Wants</strong>:  Mastering the art of &quot;needs vs. wants&quot; empowers smart spending. This journey starts with a Course Overview highlighting the difference.  Interactive exercises like sorting games and illustrated scenarios help you categorize expenses effectively.  Conclude by feeling confident in prioritizing your needs and making informed spending decisions.</p>
           <div className="flex justify-center">
             <motion.div
               ref={refClassifyingNeedsVsWants}
@@ -181,7 +181,7 @@ const CaseStudyLevelUp: React.FC = () => {
               />
             </motion.div>
           </div>
-          <p><strong>Listing Your Goals:</strong>  Let&apos;s turn financial dreams into reality! This journey begins with a Course Overview on setting achievable goals.  Interactive tools like guided prompts and vision board creation walk you through defining your short and long-term financial aspirations.  Finish by feeling motivated with a clear roadmap to your financial goals.</p>
+          <p className="text-muted-foreground leading-relaxed"><strong>Listing Your Goals:</strong>  Let&apos;s turn financial dreams into reality! This journey begins with a Course Overview on setting achievable goals.  Interactive tools like guided prompts and vision board creation walk you through defining your short and long-term financial aspirations.  Finish by feeling motivated with a clear roadmap to your financial goals.</p>
           <div className="flex justify-center">
             <motion.div
               ref={refListingYourGoals}
@@ -198,13 +198,13 @@ const CaseStudyLevelUp: React.FC = () => {
               />
             </motion.div>
           </div>
-          <p>Throughout each journey, clear introductions and concluding summaries ensure you grasp the concepts.  Swipe left after each lesson to progress and unlock new financial mastery!</p>
+          <p className="text-muted-foreground leading-relaxed">Throughout each journey, clear introductions and concluding summaries ensure you grasp the concepts.  Swipe left after each lesson to progress and unlock new financial mastery!</p>
         </section>
 
         {/* Conclusion Section */}
         <section className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Conclusion</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">I UX-engineered a mobile app prototype to gamify financial literacy. Users embark on interactive journeys like &quot;Budget Tracking Bootcamp&quot; and &quot;Needs vs. Wants Showdown.&quot; Clear intros, engaging visuals, and fun exercises guide them towards financial well-being.  This case study highlights the power of UX design in crafting educational experiences that are both informative and delightful!</p>
+          <p className="text-muted-foreground leading-relaxed">I UX-engineered a mobile app prototype to gamify financial literacy. Users embark on interactive journeys like &quot;Budget Tracking Bootcamp&quot; and &quot;Needs vs. Wants Showdown.&quot; Clear intros, engaging visuals, and fun exercises guide them towards financial well-being.  This case study highlights the power of UX design in crafting educational experiences that are both informative and delightful!</p>
         </section>
       </main>
     </div>
