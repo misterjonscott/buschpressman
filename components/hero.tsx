@@ -254,7 +254,7 @@ const SplashScreen: React.FC = () => {
         className="w-full h-full absolute top-0 left-0" // The canvas should be transparent
         style={{ backgroundColor }}
       />
-      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none text-white font-pacifico font-bold">
+      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none text-white font-bold">
         <h1 
           className="text-center text-5xl md:text-7xl leading-tight"
           style={{ 

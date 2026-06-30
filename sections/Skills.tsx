@@ -1,163 +1,158 @@
 'use client';
 
-import React, { useState, useCallback, useEffect } from 'react';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-interface Item {
-  id: number;
-  logo: string;
+interface SkillItem {
+  id: string;
   title: string;
   text: string;
 }
 
-const items: Item[] = [
-  { id: 1, logo: '/images/logos/react.webp', title: 'React', text: "React and I have been building dynamic, component-based user interfaces for almost a decade. React' scalability and performance, coupled with countless open source components and libraries, make it my go-to choice for responsive UI." },
-  { id: 2, logo: '/images/logos/figma.webp', title: 'Figma', text: "I use Figma for UI/UX design, icon illustration, rapid-prototyping, design-system reference and much more.  Figma facilitates quick creation of wireframes, interactive prototypes, and high-fidelity mockups for user-centered design." },
-  { id: 3, logo: '/images/logos/node.webp', title: 'Node.js', text: 'Node is a back-end for your front-end leveraging javascript to allow the creation of fast APIs and quick backends for prototyping a new UI.' },
-  { id: 4, logo: '/images/logos/git.webp', title: 'Git', text: "My experiences with Git include fixing all sorts of 'oh no' moments for myself and my team.  Git is an amazing tool for version control and collaborative development, while the branching, merging, and resolving conflicts should all follow strict guidelines." },
-  { id: 5, logo: '/images/logos/mui.webp', title: 'Material UI', text: "When a project doesn't have an existing design library, I often leverage Material UI for rapid development of accessible and customizable UI components.  Much like Chakra, MUI allows me to focus on efficient and consistent UI implementation, building the custom components that we need instead of recreating common elements." },
-  { id: 6, logo: '/images/logos/next.webp', title: 'Next.js', text: 'Next is capable of developing high-performance, SEO-friendly React applications using server-side rendering and static site generation.  It&apos;s not for every project, but when it fits, the value is quickly evident.' },
-  { id: 7, logo: '/images/logos/sass.webp', title: 'Sass', text: 'Many styling frameworks use the techniques that make Sass valuable like nesting blocks to acheive high specificity while eliminating the chance for unwanted collisions, and the ability to re-use blocks of code.' },
-  { id: 8, logo: '/images/logos/typescript.webp', title: 'TypeScript', text: 'Javascript has a wise partner in TypeScript, allowing me to  build robust and maintainable applications that use static typing to prevent errors and improve code quality.' },
-  { id: 9, logo: '/images/logos/chakra.webp', title: 'Chakra UI', text: "When a project doesn't have an existing design library, I often leverage Chakra UI for rapid development of accessible and customizable UI components.  Chakra allows me to focus on efficient and consistent UI implementation, building the custom components that we need instead of recreating common elements." },
-  { id: 10, logo: '/images/logos/tailwind-css-2.webp', title: 'Tailwind CSS', text: 'Tailwind CSS is a utility-first CSS framework that simplifies styling by providing pre-defined classes for rapid UI development.' },
-  { id: 11, logo: '/images/logos/radix-ui.webp', title: 'Radix UI', text: 'Radix UI offers a set of accessible, unstyled components for building high-quality design systems and user interfaces.' },
-  { id: 12, logo: '/images/logos/shadcn.webp', title: 'shadcn/ui', text: 'shadcn/ui is a collection of accessible and customizable components built with Radix UI and Tailwind CSS for modern web applications.' },
-  { id: 13, logo: '/images/logos/bootstrap-5-1.webp', title: 'Bootstrap', text: 'Bootstrap is a popular CSS framework for building responsive and mobile-first websites with pre-designed components and utilities.' },
-];
+interface CapabilityGroup {
+  categoryName: string;
+  items: SkillItem[];
+}
 
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring' as const,
-      stiffness: 100,
-      damping: 10,
-    },
+// Strictly typed capabilities categorized like production design token architecture
+const capabilities: Record<string, CapabilityGroup> = {
+  designCraft: {
+    categoryName: 'Design Craft & Token Strategy',
+    items: [
+      { id: 'figma', title: 'Figma', text: "I use Figma for UI/UX design, icon illustration, rapid-prototyping, and design-system reference. It facilitates the quick creation of wireframes, interactive prototypes, and high-fidelity mockups for user-centered design." },
+      { id: 'radix', title: 'Radix UI', text: 'Radix UI offers a set of accessible, unstyled primitives for building high-quality design systems and user interfaces that don\'t compromise on bespoke styling.' },
+    ],
   },
-};
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+  uiEngineering: {
+    categoryName: 'UI Engineering & Parity',
+    items: [
+      { id: 'typescript', title: 'TypeScript', text: 'JavaScript has a wise partner in TypeScript, allowing me to build robust, maintainable applications that use strict static typing to prevent runtime errors and ensure code quality.' },
+      { id: 'react', title: 'React', text: "React and I have been building dynamic, component-based user interfaces for almost a decade. Its scalability and structural predictability make it my go-to choice for responsive web apps." },
+      { id: 'nextjs', title: 'Next.js', text: 'Next.js allows for high-performance React architectures using server-side rendering and static generation. When the project demands deep SEO optimization and optimized routing, its value is unmatched.' },
+      { id: 'node', title: 'Node.js', text: 'Node serves as an efficient backend-for-frontend layer, leveraging JavaScript to spinning up fast APIs and quick server logic for full-stack interface prototyping.' },
+      { id: 'framer-motion', title: 'Framer Motion & Web Animations', text: 'I leverage advanced physics-based animation libraries to engineer high-performance, fluid, scroll-driven micro-interactions that elevate the digital narrative without causing layout thrashing or performance drops.' }
+    ],
   },
-};
-
-const textVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.5,
-      duration: 0.5,
-    },
+  stylingSystems: {
+    categoryName: 'Styling Systems & APIs',
+    items: [
+      { id: 'tailwind', title: 'Tailwind CSS', text: 'Tailwind CSS is a utility-first framework that drastically accelerates UI development and allows design systems to map directly from Figma tokens to atomic utility utilities.' },
+      { id: 'shadcn', title: 'shadcn/ui', text: 'shadcn/ui provides beautifully designed, accessible UI building blocks using Radix primitives and Tailwind CSS, keeping full ownership of the underlying component code.' },
+      { id: 'mui', title: 'Material UI', text: 'When a project doesn\'t feature an established design library, I leverage Material UI for rapid, highly documented UI execution, focusing on custom layer modifications rather than rebuilding primitives.' },
+      { id: 'chakra', title: 'Chakra UI', text: 'Chakra allows for fast, theme-aware layouts with clean semantic prop tokens, making it excellent for rapid interface scaffolding and highly accessible components.' },
+      { id: 'sass', title: 'Sass', text: 'Sass remains highly valuable for nesting, mixing, and creating structured stylesheets that achieve high specificity while eliminating global style collisions.' },
+      { id: 'bootstrap', title: 'Bootstrap', text: 'A classic staple for mobile-first layout scaffolding. It remains exceptional for building responsive, robust utilities when legacy platforms require modern web migrations.' },
+      { id: 'token-gov', title: 'Design Token Governance', text: 'Expertise in establishing strict structural parity between Figma component variables and production CSS/Tailwind configuration files, ensuring design changes scale instantly across multiple product lines without friction.' }
+    ],
+  },
+  infrastructure: {
+    categoryName: 'Infrastructure & Parity',
+    items: [
+      { id: 'git', title: 'Git', text: "My experiences with Git include resolving complex architecture conflicts and team branching anomalies. I treat version control as a tool for collaborative sanity and strict codebase deployment governance." },
+      { id: 'ai-eng', title: 'Agentic Workflows & MCP', text: 'I integrate cutting-edge AI engineering protocols like the Model Context Protocol (MCP) to architect context-aware systems, automating complex development cycles and engineering smart interface behaviors.' }
+    ],
   },
 };
 
 const Skills: React.FC = () => {
-  const [tooltipContent, setTooltipContent] = useState<string | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseEnter = useCallback((item: Item) => {
-    setTooltipContent(item.text);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setTooltipContent(null);
-  }, []);
-
-  const handleMouseMove = useCallback((event: React.MouseEvent) => {
-    setMousePosition({
-      x: event.clientX,
-      y: event.clientY,
-    });
-  }, []);
-
-  // Hide tooltip on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      setTooltipContent(null);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  // Default to showing React's breakdown on page load
+  const [selectedItem, setSelectedItem] = useState<SkillItem>(capabilities.uiEngineering.items[1]);
 
   return (
-    <section
-      id="skills"
-      className="section-container flex items-center justify-center min-h-screen relative overflow-hidden"
-      onMouseMove={handleMouseMove}
-    >
-      <motion.div
-        className="flex flex-col items-center justify-center w-full max-w-[1000px] border-dashed border-4 border-grey-400 rounded-lg bg-blue-400/10 py-8 px-4 z-0"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={containerVariants}
-      >
-        <motion.p
-          className="text-black font-bold tracking-widest text-center offside-font text-2xl md:text-6xl mb-12"
-          variants={textVariants}
-        >
-          {typeof window !== 'undefined' && window.innerWidth <= 768 ? 'Click to learn more' : 'Hover to learn more'}
-        </motion.p>
+    <section id="skills" className="flex items-center justify-center min-h-screen bg-slate-950 px-4 py-16 tracking-tight font-title">
+      <div className="w-full max-w-[1100px] flex flex-col gap-6">
         
-        <div className="flex justify-center flex-wrap gap-4 sm:gap-12 md:gap-16 w-full">
-          {items.map((item) => (
-            <motion.div
-              key={item.id}
-              variants={itemVariants}
-            >
-              <Button
-                className="group bg-transparent p-0 h-20 w-20 md:h-28 md:w-28 hover:bg-transparent"
-                onMouseEnter={() => handleMouseEnter(item)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="flex flex-col items-center p-4">
-                  <Image
-                    src={item.logo}
-                    alt={item.title}
-                    className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-125"
-                    width={0}
-                    height={0}
-                    sizes="(max-width: 768px) 60px, (max-width: 1200px) 150px, 200px"
-                  />
-                </div>
-              </Button>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+        {/* Code Editor Frame */}
+        <div className="w-full rounded-xl border border-slate-800 bg-slate-900 shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[550px]">
+          
+          {/* Left: Interactive Token Mapping Schema */}
+          <div className="w-full md:w-7/12 p-6 border-b md:border-b-0 md:border-r border-slate-800 flex flex-col justify-between">
+            <div>
+              {/* Fake Window Header Controls */}
+              <div className="flex gap-2 mb-6">
+                <span className="w-3 h-3 rounded-full bg-rose-500/80" />
+                <span className="w-3 h-3 rounded-full bg-amber-500/80" />
+                <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                <span className="text-xs text-slate-500 font-mono ml-2">capabilities.ts</span>
+              </div>
 
-      {tooltipContent && (
-        <Card
-          className="fixed z-50 p-4 max-w-xs transition-opacity duration-150 text-foreground shadow-lg
-                    bg-white/30 backdrop-blur-sm dark:bg-black/30 border border-white/20 dark:border-black/20"
-          style={{
-            left:
-              mousePosition.x + 220 > window.innerWidth // Check if tooltip would overflow on the right
-                ? mousePosition.x - 220 // Position on the left if it overflows
-                : mousePosition.x + 20, // Default position on the right
-            top: mousePosition.y + 20,
-            transform: `translateY(${mousePosition.y > window.innerHeight / 2 ? '-100%' : '0'})`,
-          }}
-        >
-          {tooltipContent}
-        </Card>
-      )}
+              {/* Token Tree JSON Representation */}
+              <div className="font-mono text-sm leading-relaxed text-slate-400">
+                <span className="text-indigo-400">const</span> <span className="text-amber-400">jonScottCapabilities</span> = <span className="text-slate-500">{'{'}</span>
+                
+                <div className="pl-4 flex flex-col gap-4 my-2">
+                  {Object.entries(capabilities).map(([key, group]) => (
+                    <div key={key} className="group">
+                      <span className="text-teal-400">\"{key}\"</span>: <span className="text-slate-500">[</span>
+                      
+                      {/* Interactive Tags inside the Token Group */}
+                      <div className="flex flex-wrap gap-2 pl-4 my-1">
+                        {group.items.map((item) => {
+                          const isSelected = selectedItem.id === item.id;
+                          return (
+                            <button
+                              key={item.id}
+                              onClick={() => setSelectedItem(item)}
+                              className={`px-3 py-1 text-xs rounded border transition-all duration-150 ${
+                                isSelected
+                                  ? 'bg-amber-400/10 text-amber-300 border-amber-400/40 shadow-sm'
+                                  : 'bg-slate-800/50 text-slate-400 border-slate-800 hover:border-slate-700 hover:text-slate-200'
+                              }`}
+                            >
+                              {item.title}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <span className="text-slate-500">],</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <span className="text-slate-500">{'};'}</span>
+              </div>
+            </div>
+
+            {/* Instruction Footer */}
+            <div className="mt-6 text-xs font-mono text-slate-500 italic">
+              // Click any token tag to inspect architecture capabilities and system deployment strategy.
+            </div>
+          </div>
+
+          {/* Right: Output Terminal / Context Documentation Panel */}
+          <div className="w-full md:w-5/12 bg-slate-950/40 p-6 flex flex-col justify-between">
+            <div className="flex flex-col h-full justify-center">
+              <span className="text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">// Token Output</span>
+              
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedItem.id}
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.15 }}
+                  className="flex flex-col gap-4"
+                >
+                  <h3 className="text-2xl font-bold text-slate-100 tracking-tight">
+                    {selectedItem.title}
+                  </h3>
+                  
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    {selectedItem.text}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Simulated Debug Stats */}
+            <div className="border-t border-slate-900 pt-4 mt-6 flex justify-between items-center text-[11px] font-mono text-slate-600">
+              <span>STATUS: 200 OK</span>
+              <span>LANG: TSX</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
   );
 };

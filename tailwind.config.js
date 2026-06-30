@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import designTokens from './app/tokens.json';
 module.exports = {
   darkMode: 'class',
   content: [
@@ -43,7 +44,11 @@ module.exports = {
           foreground: 'var(--accent-foreground)',
         },
         link: 'var(--link-color)',
+        brand: designTokens.color?.['brand-primary']?.value || '#002f6c',
       },
+      spacing: {
+        'brand-md': designTokens.spacing?.md?.value ? `${designTokens.spacing.md.value}px` : '16px',
+      }
     },
   },
   plugins: [],

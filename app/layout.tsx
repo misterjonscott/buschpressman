@@ -1,37 +1,24 @@
 import type { Metadata } from "next";
-import { Pacifico, Lato, Bebas_Neue, Offside} from "next/font/google";
+import { Lato, Geist } from "next/font/google"; 
 import "./globals.css";
 
-const pacifico = Pacifico({
-  variable: "--pacifico-font",
-  subsets: ["latin"],
-  weight: "400",
-});
-
+// 1. Configure your Body Font
 const lato = Lato({
-  variable: "--font-lato",
+  variable: "--font-body-lato",
   subsets: ["latin"],
-  weight: ['100', '300', '400', '700', '900'],
+  weight: ['300', '400', '700'],
 });
 
-const bebasNeue = Bebas_Neue({
-  variable: "--font-bebas-neue",
+// 2. Configure your crisp Title Font
+const geistTitle = Geist({
+  variable: "--font-title-geist",
   subsets: ["latin"],
-  weight: "400",
 });
-
-const offside = Offside({
-  variable: "--font-offside",
-  subsets: ["latin"],
-  weight: "400",
-});
-
 
 export const metadata: Metadata = {
   title: "Jon Scott - UX Design and Development",
   description: "The works and a hint of personality of Jon Scott, a UX designer and developer.",
 };
-
 
 export default function RootLayout({
   children,
@@ -40,7 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${pacifico.variable} ${lato.variable} ${bebasNeue.variable} ${offside.variable} antialiased`}>
+      {/* Inject both distinct variables into the body global wrapper */}
+      <body className={`${lato.variable} ${geistTitle.variable} antialiased font-body text-foreground`}>
           {children}
       </body>
     </html>

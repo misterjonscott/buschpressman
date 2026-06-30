@@ -128,7 +128,7 @@ const Projects: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center p-8" style={{ backgroundColor: '#22223b' }}>
       <div className="w-full max-w-6xl mx-auto">
-        <h1 className='offside-font text-5xl text-center pb-4 text-white'>Case Studies</h1>
+        <h1 className='text-5xl text-center pb-4 font-black tracking-tight font-title text-white'>Case Studies</h1>
         <motion.div
           className="grid grid-cols-2 md:grid-cols-3 gap-6"
           variants={containerVariants}

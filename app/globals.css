@@ -1,7 +1,13 @@
 @import "tw-animate-css";
+@import "./variables.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@theme {
+  --font-title: var(--font-title-geist), sans-serif;
+  --font-body: var(--font-body-lato), sans-serif;
+}
 
 :root {
   --radius: 0.625rem;
@@ -83,12 +89,6 @@
   }
   h1, h2, h3 {
     font-family: var(--font-bebas-neue); /* Apply Bebas Neue font */
-  }
-  .pacifico-font {
-    font-family: var(--pacifico-font); /* Custom class for Pacifico font */
-  }
-  .offside-font {
-    font-family: var(--font-offside); /* Custom class for Offside font */
   }
   *:focus {
     @apply outline-none ring-2 ring-[var(--ring)] ring-opacity-50;

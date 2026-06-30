@@ -40,13 +40,20 @@ const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) =>
   return (
     <header className="fixed top-0 w-full bg-background shadow-md z-10">
       <div className="flex items-center justify-between mx-auto px-4 py-2 h-14">
-        <Image
-          src="/images/jon-scott-portfolio-logo.png"
-          alt="Jon Scott UX Portfolio Logo"
-          style={{ width: 'auto', height: 'auto' }}
-          width={267}
-          height={47}
-        />
+        <div className="flex items-center space-x-2 font-title">
+          {/* The Name: Authoritative & Bold */}
+          <span className="text-3xl font-black tracking-tight text-foreground uppercase">
+            Jon Scott
+          </span>
+          
+          {/* The Divider */}
+          <span className="text-border font-light text-xl">|</span>
+          
+          {/* The Discipline: Technical, Clean, Monospace Suffix */}
+          <span className="font-mono text-sm bg-muted px-1.5 py-0.5 rounded text-primary border border-border/40">
+            ux
+          </span>
+        </div>
         <div className="block md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu" className="p-2 rounded-md hover:bg-muted">
             <Menu size={24} />

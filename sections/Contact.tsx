@@ -197,7 +197,7 @@ const Contact: React.FC<ContactProps> = () => {
             className="min-h-screen max-h-screen flex items-center justify-center"
         >
             <div className="w-full">
-                <h2 className="mx-auto mb-8 text-center text-3xl offside-font md:mb-16 md:text-6xl">
+                <h2 className="mx-auto mb-8 text-center text-3xl font-bold tracking-tight font-title text-foreground md:mb-16 md:text-6xl">
                     Let&apos;s get started!
                 </h2>
                 <div className="mx-auto mt-8 flex flex-col gap-8 justify-center items-center px-4 md:flex-row md:items-start">

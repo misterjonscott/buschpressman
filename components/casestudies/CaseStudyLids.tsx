@@ -55,7 +55,7 @@ const CaseStudyLids: React.FC = () => {
       <header className="relative bg-gradient-to-br from-blue-600 to-purple-700 text-white py-1 px-6 rounded-lg">
         <div className="mx-auto flex items-center justify-between">
           <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 offside-font">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight font-title">
               Smart Shopping
             </h1>
           </div>
