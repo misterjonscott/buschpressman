@@ -45,6 +45,17 @@ module.exports = {
         },
         link: 'var(--link-color)',
         brand: designTokens.color?.['brand-primary']?.value || '#002f6c',
+        'museum-dark': '#111111',
+        'museum-surface': '#1c1c1c',
+        'accent-mahogany': '#7c2d12',
+        'accent-amber': '#b45309',
+        'surface-aluminum': '#f8fafc',
+        'text-aluminum': '#94a3b8',
+      },
+      fontFamily: {
+        display: ['var(--font-serif)', 'serif'],
+        body: ['var(--font-sans)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
       },
       spacing: {
         'brand-md': designTokens.spacing?.md?.value ? `${designTokens.spacing.md.value}px` : '16px',

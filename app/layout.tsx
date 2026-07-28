@@ -4,20 +4,20 @@ import "./globals.css";
 
 // 1. Configure your Body Font
 const lato = Lato({
-  variable: "--font-body-lato",
+  variable: "--font-sans",
   subsets: ["latin"],
   weight: ['300', '400', '700'],
 });
 
 // 2. Configure your crisp Title Font
 const geistTitle = Geist({
-  variable: "--font-title-geist",
+  variable: "--font-serif",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Jon Scott - UX Design and Development",
-  description: "The works and a hint of personality of Jon Scott, a UX designer and developer.",
+  title: "Busch Press-Man Unit 2024",
+  description: "History of the Busch Press-Man Unit 2024, a unique camera chassis designed to compete with the Graflex Speed Graphic.",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* Inject both distinct variables into the body global wrapper */}
-      <body className={`${lato.variable} ${geistTitle.variable} antialiased font-body text-foreground`}>
+      <body className={`${lato.variable} ${geistTitle.variable} antialiased font-body bg-museum-dark text-stone-300`}>
           {children}
       </body>
     </html>

@@ -7,11 +7,9 @@ import Header from '@/components/header';
 import SplashScreen from '@/components/hero';
 
 // Dynamically import all sections
-const About = dynamic(() => import('@/sections/About'), { ssr: false });
-const Snapshots = dynamic(() => import('@/sections/Snapshots'), { ssr: false });
-const Projects = dynamic(() => import('@/sections/Projects'), { ssr: false });
-const Skills = dynamic(() => import('@/sections/Skills'), { ssr: false });
-const Recommendations = dynamic(() => import('@/sections/Recommendations'), { ssr: false });
+const Timeline = dynamic(() => import('@/sections/Timeline'), { ssr: false });
+const Gallery = dynamic(() => import('@/sections/Gallery'), { ssr: false });
+const Conclusion = dynamic(() => import('@/sections/Conclusion'), { ssr: false });
 const Contact = dynamic(() => import('@/sections/Contact'), { ssr: false });
 const Footer = dynamic(() => import('@/components/footer'), { ssr: false });
 
@@ -20,29 +18,23 @@ const Home = () => {
   const activeSectionRef = useRef('home');
 
   const homeRef = useRef(null);
-  const aboutRef = useRef(null);
-  const snapshotsRef = useRef(null);
-  const projectsRef = useRef(null);
-  const skillsRef = useRef(null);
-  const recommendationsRef = useRef(null);
+  const timelineRef = useRef(null);
+  const galleryRef = useRef(null);
+  const conclusionRef = useRef(null);
   const contactRef = useRef(null);
 
   const isHomeInView = useInView(homeRef, { margin: "-50% 0px -50% 0px" });
-  const isAboutInView = useInView(aboutRef, { margin: "-50% 0px -50% 0px" });
-  const isSnapshotsInView = useInView(snapshotsRef, { margin: "-50% 0px -50% 0px" });
-  const isProjectsInView = useInView(projectsRef, { margin: "-50% 0px -50% 0px" });
-  const isSkillsInView = useInView(skillsRef, { margin: "-50% 0px -50% 0px" });
-  const isRecommendationsInView = useInView(recommendationsRef, { margin: "-50% 0px -50% 0px" });
+  const isTimelineInView = useInView(timelineRef, { margin: "-50% 0px -50% 0px" });
+  const isGalleryInView = useInView(galleryRef, { margin: "-50% 0px -50% 0px" });
+  const isConclusionInView = useInView(conclusionRef, { margin: "-50% 0px -50% 0px" });
   const isContactInView = useInView(contactRef, { margin: "-50% 0px -50% 0px" });
 
   useEffect(() => {
     const newActiveSection = 
       (isHomeInView && 'home') ||
-      (isAboutInView && 'about') ||
-      (isSnapshotsInView && 'snapshots') ||
-      (isProjectsInView && 'projects') ||
-      (isSkillsInView && 'skills') ||
-      (isRecommendationsInView && 'recommendations') ||
+      (isTimelineInView && 'timeline') ||
+      (isGalleryInView && 'gallery') ||
+      (isConclusionInView && 'conclusion') ||
       (isContactInView && 'contact');
 
     if (newActiveSection && newActiveSection !== activeSectionRef.current) {
@@ -51,11 +43,9 @@ const Home = () => {
     }
   }, [
     isHomeInView,
-    isAboutInView,
-    isSnapshotsInView,
-    isProjectsInView,
-    isSkillsInView,
-    isRecommendationsInView,
+    isTimelineInView,
+    isGalleryInView,
+    isConclusionInView,
     isContactInView,
   ]);
   
@@ -65,20 +55,14 @@ const Home = () => {
       <section id="home" ref={homeRef} className="relative">
         <SplashScreen />
       </section>
-      <section id="about" ref={aboutRef} className="relative">
-        <About />
+      <section id="timeline" ref={timelineRef} className="relative">
+        <Timeline />
       </section>
-      <section id="snapshots" ref={snapshotsRef} className="relative">
-        <Snapshots />
+      <section id="gallery" ref={galleryRef} className="relative">
+        <Gallery />
       </section>
-      <section id="projects" ref={projectsRef} className="relative">
-        <Projects />
-      </section>
-      <section id="skills" ref={skillsRef} className="relative">
-        <Skills />
-      </section>
-      <section id="recommendations" ref={recommendationsRef} className="relative">
-        <Recommendations />
+      <section id="conclusion" ref={conclusionRef} className="relative">
+        <Conclusion />
       </section>
       <section id="contact" ref={contactRef} className="relative">
         <Contact />

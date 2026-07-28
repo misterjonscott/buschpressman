@@ -1,0 +1,32 @@
+3. Visual Identity & Aesthetic Direction
+Since this camera bridges the gap between Art Deco elegance (the winged logo) and gritty WWII material shortages, the UI should reflect that tension.
+Color Palette: Dominated by dark, oxidized industrial tones (charcoal, matte black aluminum) contrasted with a rich, warm "vintage mahogany" accent color to celebrate the rare wood chassis.
+Typography: A bold, geometric Art Deco header font (reminiscent of 1940s advertising) paired with a highly legible, sterile modern sans-serif for the technical breakdown and patent data.
+Wartime Textures: Subtle paper textures in the background of the timeline section to mimic the feel of the Popular Photography pages and the Graflex Historic Quarterly.
+
+4. Next Steps for Community Activation
+Once this page goes live, it shouldn't just sit there—it should act as a beacon for other collectors.
+The "Call to Collectors": Include a prominent CTA (Call to Action) at the bottom: "Do you own a 4-digit Busch? Help us map the missing link." This crowdsources further validation and drives traffic from camera forums (Photrio, Large Format Photography Forum).
+The PDF "Whitepaper" Download: Package the entire webpage narrative, complete with the cited sources and high-res photos, into a beautifully formatted, downloadable PDF "Provenance Dossier." Collectors love printing out documentation to keep inside their camera cases.
+
+============= Sections =================
+(the hook) Hero image of camera with striking hook
+(the story) Historical explanation of this camera's existance.
+In 1942, Fink-Roselieve (F-R), a New York-based manufacturer known mostly for photography chemicals and darkroom equipment, introduced the FR Reporter. It was a compact, press-style folding camera (2¼ × 3¼ format).
+The Sale: Shortly after its introduction, the Fink-Roselieve company sold the design, production rights, and tooling for the FR Reporter to Busch Precision Camera (a division of the Emil Busch Optical Company).
+The Aftermath: Busch renamed the camera the Busch Press-man (often referred to as the Busch Pressman Model C). Busch went on to continue producing and marketing it successfully in the post-WWIl era.
+Following the sale, Fink-Roselieve shifted its focus away from camera manufacturing to concentrate on its highly successful line of photographic darkroom chemicals (e.g., F-R film developer) and adjustable developing tanks.
+
+Jim Chasse noted, in GHQ 19-3 3rd quarter 2014 (referenced from his 2005 article in Camera Shopper), owning an FR Reporter with serial number 15,123 compared to our model, which is stamped 2024.
+
+(comparisons between #2024, the FR Reporter, and the later Busch Pressman Model(s))
+
+(The magazine ad for the Fink Roselieve Reporter) (I have high-res digital copy of this ad)
+
+(October 1942 Popular Photography ad showing the FR Reporter rebranded as the Busch PressMan) (I own this clipping and will sell it with the camera)
+
+(the patents)
+
+(GHQ article references)
+
+(the proof)

@@ -2,7 +2,6 @@
 
 import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Define the props interface
@@ -10,6 +9,14 @@ interface HeaderProps {
   currentSection: string;
   setCurrentSection: (section: string) => void;
 }
+
+const sectionLabels: Record<string, string> = {
+  home: 'Home',
+  timeline: 'The Timeline',
+  gallery: 'The Workbench',
+  conclusion: 'The Legacy',
+  contact: 'Contact',
+};
 
 const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) => {
   const [isClient, setIsClient] = useState(false);
@@ -37,21 +44,15 @@ const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) =>
     return null;
   }
 
+  const sections = ['home', 'timeline', 'gallery', 'conclusion', 'contact'];
+
   return (
     <header className="fixed top-0 w-full bg-background shadow-md z-10">
       <div className="flex items-center justify-between mx-auto px-4 py-2 h-14">
         <div className="flex items-center space-x-2 font-title">
           {/* The Name: Authoritative & Bold */}
-          <span className="text-3xl font-black tracking-tight text-foreground uppercase">
-            Jon Scott
-          </span>
-          
-          {/* The Divider */}
-          <span className="text-border font-light text-xl">|</span>
-          
-          {/* The Discipline: Technical, Clean, Monospace Suffix */}
-          <span className="font-mono text-sm bg-muted px-1.5 py-0.5 rounded text-primary border border-border/40">
-            ux
+          <span className="text-2xl tracking-tight text-foreground uppercase">
+            Busch Press-Man #20247
           </span>
         </div>
         <div className="block md:hidden">
@@ -60,13 +61,13 @@ const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) =>
           </button>
         </div>
         <div className="hidden md:flex gap-4">
-          {['home', 'about', 'snapshots', 'projects', 'skills', 'recommendations', 'contact'].map((section) => (
+          {sections.map((section) => (
             <div key={section} className="relative">
               <button
                 onClick={() => handleNavigation(section)}
                 className={`px-3 py-1.5 rounded-md ${currentSection === section ? 'text-primary-foreground' : 'hover:bg-muted'}`}
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {sectionLabels[section] || section}
               </button>
               <AnimatePresence>
                 {currentSection === section && (
@@ -92,13 +93,13 @@ const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) =>
             <X size={24} />
           </button>
           <div className="mt-4 flex flex-col items-end">
-            {['home', 'about', 'snapshots', 'projects', 'skills', 'recommendations', 'contact'].map((section) => (
+            {sections.map((section) => (
               <div key={section} className="relative">
                 <button
                   onClick={() => handleNavigation(section)}
                   className={`px-3 py-1.5 rounded-md mb-2 ${currentSection === section ? 'text-primary-foreground' : 'hover:bg-muted'}`}
                 >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {sectionLabels[section] || section}
                 </button>
                 <AnimatePresence>
                   {currentSection === section && (

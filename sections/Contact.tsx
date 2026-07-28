@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import Image from 'next/image';
 import { CheckCircle, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,36 +7,58 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
 import { Select, SelectValue, SelectTrigger, SelectContent, SelectItem } from '@/components/ui/select';
-import { cn } from "@/lib/utils"
+
+// --- Helper Types ---
+type FormState = {
+    errors?: {
+        getFieldErrors?: (field: string) => readonly unknown[];
+    } | null;
+    succeeded?: boolean;
+    submitting?: boolean;
+};
 
 // --- Helper Function ---
-const useFieldError = (state: { errors: any }, fieldName: string) => {
-    return React.useMemo(() => {
-        if (!state.errors || !Array.isArray(state.errors)) return false;
-        return state.errors.some((error) => error.field === fieldName);
-    }, [state.errors, fieldName]);
+const hasFieldError = (state: FormState, fieldName: string): boolean => {
+    const errors = state.errors;
+
+    if (!errors || typeof errors !== 'object') {
+        return false;
+    }
+
+    if ('getFieldErrors' in errors && typeof errors.getFieldErrors === 'function') {
+        const fieldErrors = (errors.getFieldErrors as (field: string) => readonly unknown[])(fieldName);
+        return Array.isArray(fieldErrors) && fieldErrors.length > 0;
+    }
+
+    if (Array.isArray(errors)) {
+        return errors.some((error) => {
+            if (!error || typeof error !== 'object') return false;
+            return 'field' in error && (error as { field?: string }).field === fieldName;
+        });
+    }
+
+    return false;
 };
 
 // --- Sub-Components ---
-interface ContactFormProps { }
 
-const ContactForm: React.FC<ContactFormProps> = () => {
-    const [state, handleSubmit] = useForm('mpwqlzvq');
-    const hasError = (fieldName: string) => useFieldError(state, fieldName);
+const ContactForm: React.FC = () => {
+    const [state, handleSubmit] = useForm('xlgqaqne');
+    const hasError = (fieldName: string) => hasFieldError(state, fieldName);
 
     return (
-        <Card className="w-full max-w-[500px] border-0 bg-white p-6 shadow-lg rounded-lg dark:bg-slate-800">
+        <Card className="w-full max-w-[500px] border border-accent-mahogany/40 bg-museum-surface p-6 shadow-xl rounded-xl text-stone-300">
             {/* Render both success message and form, but conditionally hide one */}
             <div className={state.succeeded ? 'block' : 'hidden'}>
                 <div className="mt-4 flex h-full flex-col items-center justify-center">
                     <div className="flex items-center justify-center">
-                        <CheckCircle className="h-16 w-16 text-green-500" aria-hidden="true" />
+                        <CheckCircle className="h-16 w-16 text-emerald-500" aria-hidden="true" />
                     </div>
-                    <div className="mt-4 text-xl font-medium text-green-600">
-                        Thanks for reaching out!
+                    <div className="mt-4 text-xl font-medium text-emerald-400 font-display">
+                        Thank you!
                     </div>
-                    <p className="mt-2 text-center text-gray-600">
-                        I'll get back to you as soon as possible.
+                    <p className="mt-2 text-center text-stone-400 font-body">
+                        I&apos;ll get back to you as soon as possible.
                     </p>
                 </div>
             </div>
@@ -59,7 +80,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                         name="name"
                         type="text"
                         aria-label="Name"
-                        className="w-full"
+                        className="w-full bg-museum-dark border-stone-700 text-stone-100 focus:border-accent-amber"
                         autoComplete="name"
                         required
                     />
@@ -77,7 +98,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                         name="email"
                         type="email"
                         aria-label="Email Address"
-                        className="w-full"
+                        className="w-full bg-museum-dark border-stone-700 text-stone-100 focus:border-accent-amber"
                         autoComplete="email"
                         required
                     />
@@ -94,14 +115,14 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                         <SelectTrigger
                             id="inquiryType"
                             aria-label="Inquiry Type"
-                            className="w-full"
+                            className="w-full bg-museum-dark border-stone-700 text-stone-100 focus:border-accent-amber"
                         >
                             <SelectValue placeholder="Select an option" />
                         </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="general">General Inquiry</SelectItem>
-                            <SelectItem value="project">Project Proposal</SelectItem>
-                            <SelectItem value="support">Support Request</SelectItem>
+                        <SelectContent className="bg-museum-surface border-stone-700 text-stone-100">
+                            <SelectItem value="general">General Question</SelectItem>
+                            <SelectItem value="offer">Acquisition Offer</SelectItem>
+                            <SelectItem value="history">Historical Information</SelectItem>
                         </SelectContent>
                     </Select>
                 </FormField>
@@ -117,7 +138,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                         id="message"
                         name="message"
                         aria-label="Message"
-                        className="w-full"
+                        className="w-full bg-museum-dark border-stone-700 text-stone-100 focus:border-accent-amber"
                         autoComplete="off"
                         required
                     />
@@ -129,7 +150,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                         name="phone"
                         type="tel"
                         aria-label="Phone Number"
-                        className="w-full"
+                        className="w-full bg-museum-dark border-stone-700 text-stone-100 focus:border-accent-amber"
                         autoComplete="tel"
                     />
                 </FormField>
@@ -140,7 +161,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                         name="company"
                         type="text"
                         aria-label="Company"
-                        className="w-full"
+                        className="w-full bg-museum-dark border-stone-700 text-stone-100 focus:border-accent-amber"
                         autoComplete="organization"
                     />
                 </FormField>
@@ -148,7 +169,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                 <Button
                     type="submit"
                     disabled={state.submitting}
-                    className="w-full bg-teal-600 transition-all duration-300 hover:bg-teal-700 text-white"
+                    className="w-full bg-accent-mahogany transition-all duration-300 hover:bg-accent-amber text-white font-display uppercase tracking-wider"
                     aria-label={state.submitting ? 'Submitting form' : 'Submit message'}
                 >
                     {state.submitting ? (
@@ -180,7 +201,7 @@ interface FormFieldProps {
 const FormField: React.FC<FormFieldProps> = ({ label, fieldName, required, errorMessage, children, hasError }) => {
     return (
         <div className="space-y-2">
-            <Label htmlFor={fieldName} className="font-medium">
+            <Label htmlFor={fieldName} className="font-medium text-stone-300 font-body">
                 {label} {required && <span className="text-red-500">*</span>}
             </Label>
             <div className={hasError ? 'border-red-500' : ''}>{children}</div>
@@ -189,19 +210,21 @@ const FormField: React.FC<FormFieldProps> = ({ label, fieldName, required, error
     );
 };
 
-interface ContactProps { }
-
-const Contact: React.FC<ContactProps> = () => {
+const Contact: React.FC = () => {
     return (
         <div
-            className="min-h-screen max-h-screen flex items-center justify-center"
+            className="min-h-screen flex items-center justify-center bg-transparent text-stone-300 py-24"
         >
             <div className="w-full">
-                <h2 className="mx-auto mb-8 text-center text-3xl font-bold tracking-tight font-title text-foreground md:mb-16 md:text-6xl">
-                    Let&apos;s get started!
-                </h2>
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4 font-display uppercase tracking-widest text-stone-100">
+                    Acquisition & Provenance Inquiries
+                    </h2>
+                    <p className="text-stone-400 font-body text-base md:text-lg max-w-2xl mx-auto">
+                    This camera is currently held in a private collection and is undergoing continued historical research. Serious inquiries regarding acquisition, or information regarding its provenance, are welcome.
+                    </p>
+                </div>
                 <div className="mx-auto mt-8 flex flex-col gap-8 justify-center items-center px-4 md:flex-row md:items-start">
-                    <ContactInfo className="flex-grow max-w-[300px]" />
                     <div className="flex-1 max-w-[500px] w-full">
                         <ContactForm />
                     </div>
@@ -210,40 +233,5 @@ const Contact: React.FC<ContactProps> = () => {
         </div>
     );
 };
-
-const ContactInfo = ({ className }: { className?: string }) => {
-    return (
-        <div className={cn("mb-5 flex flex-col items-center  hidden md:block", className)}>
-            <div className="relative overflow-hidden rounded-full shadow-lg w-[300px] h-[300px]">
-                <Image
-                    src="/images/jon-scott.webp"
-                    alt="Contact Me Graphic"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 200px, 300px"
-                    className="object-cover rounded-full"
-                />
-            </div>
-            <div className="mt-4 text-center">
-                <p className="text-base text-gray-700 md:text-lg"></p>
-                <a
-                    href="https://www.linkedin.com/in/your-profile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 flex items-center justify-center font-medium text-link"
-                >
-                    <Image
-                        src="/images/logos/linkedin-logo.svg"
-                        alt="LinkedIn Logo"
-                        width={24}
-                        height={24}
-                        className="mr-2 inline-block"
-                    />
-                    <span style={{ color: '#0072b1' }}>Connect With Me</span>
-                </a>
-            </div>
-        </div>
-    )
-}
 
 export default Contact;

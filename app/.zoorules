@@ -1,0 +1,20 @@
+# UX Engineering & Architecture Rules
+
+## 1. Tool Boundaries & Budget
+- NEVER execute global codebase searches (`grep`, `codebase_search`) unless explicitly authorized. 
+- Always read the target file first using `read_file` to inspect its imports and structure before modifying it.
+- Never write to or create more than ONE file per tool execution turn.
+
+## 2. React & Component Architecture
+- We construct clean, modular functional React components using TypeScript (`.tsx`).
+- Keep presentation layout components decoupled from global data-fetching or state logic where possible.
+- Avoid nesting complex components in a single file; abstract them naturally into `/components`.
+
+## 3. Visual & Layout Engineering (Tailwind CSS)
+- We rely exclusively on Tailwind utility classes for layout, flexbox, grid centering, and responsive design. 
+- NEVER inject raw inline `style={{}}` tags or construct custom vanilla CSS blocks unless handling highly dynamic hardware/physics values.
+- Adhere strictly to existing design tokens or configuration values specified in `tailwind.config.js`.
+
+## 4. Execution Safety
+- Do not add, delete, or update dependencies in `package.json` without asking.
+- When generating layout code, provide a side-by-side diff layout. Never wipe out descriptive semantic HTML tags or SEO metadata blocks from the root layouts.
