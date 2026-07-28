@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next'
- 
+
+export const revalidate = false;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
