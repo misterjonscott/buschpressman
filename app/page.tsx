@@ -5,6 +5,14 @@ import dynamic from 'next/dynamic';
 import { useInView } from 'framer-motion';
 import Header from '@/components/header';
 import SplashScreen from '@/components/hero';
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Archive 2024 | The Missing Link in Busch Pressman History',
+  description: 'A digital forensic archive exploring the history, espionage, and engineering of the rare 1943 wooden Busch Pressman 20247 test mule.',
+  keywords: ['Busch Pressman', 'Graflex', 'Large Format Camera', 'Vintage Camera', 'Camera History'],
+}
+
 
 // Dynamically import all sections
 const Timeline = dynamic(() => import('@/sections/Timeline'), { ssr: false });
