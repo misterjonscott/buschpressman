@@ -27,6 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta name="google-site-verification" content="FvhefMFqPYmUximEOaaNK6BWFjRM9Rolc_3OhPrLTLc" />
       {/* Inject both distinct variables into the body global wrapper */}
       <body className={`${lato.variable} ${geistTitle.variable} antialiased font-body bg-museum-dark text-stone-300`}>
           {children}

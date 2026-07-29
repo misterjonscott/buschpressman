@@ -1,5 +1,3 @@
-<meta name="google-site-verification" content="FvhefMFqPYmUximEOaaNK6BWFjRM9Rolc_3OhPrLTLc" />
-
 import type { Metadata } from 'next';
 import HomePageClient from '@/components/HomePageClient';
 
