@@ -8,13 +8,13 @@ const timelineData = [
   {
     year: "1941",
     name: "Stolen Blueprint",
-    content: "Seeking to break into the lucrative press camera market, a darkroom chemical company named Fink-Roselieve (FR) boldly reverse-engineers the 1941 Graflex 2x3 Anniversary Speed Graphic. Lacking Graflex's decades of institutional knowledge and precision tooling, they build an unauthorized, wooden clone.",
+    content: "Seeking to break into the lucrative press camera market, a darkroom chemical company named Fink-Roselieve (FR) boldly reverse-engineers the 1941 Graflex Mini Speed Graphic. Lacking Graflex's decades of institutional knowledge and precision tooling, they build an unauthorized, wooden clone.",
     image: "/images/borrowed-blueprints-01.webp"
   },
   {
     year: "1942",
     name: "The FR Reporter",
-    content: "In October 1942, at the height of WWII material rationing, FR audaciously publishes an advertisement for the 'Reporter'. It is functionally a wooden knock-off of the Anniversary Speed Graphic, but is quickly plagued by the weaknesses of a poorly manufactured copy of Graflex's proprietary Graphic Back spring mechanism.",
+    content: "In October 1942, at the height of WWII material rationing, FR audaciously publishes an advertisement for the 'Reporter'. It is functionally a wooden knock-off of the Mini Speed Graphic, but is quickly plagued by the weaknesses of a poorly manufactured copy of Graflex's proprietary Graphic Back spring mechanism.",
     image: "/images/FRReporterfromOctober1942PopularPhotographymagazine.webp"
   },
   {
@@ -30,9 +30,9 @@ const timelineData = [
     image: "/images/1943-busch-ad.webp"
   },
   {
-    year: "1949",
+    year: "1946",
     name: "The Salvation",
-    content: "Having learned that reverse-engineered mechanisms fail on soft wood, Busch abandons the stolen FR blueprints. Alfred E. Little is granted US Patent 2,482,348 for a superior cam-operated locking mechanism, birthing the legendary, aircraft-grade aluminum Busch Pressman Model C and Model D cameras.",
+    content: "Having learned that reverse-engineered mechanisms failed regularly, Busch abandons the stolen FR blueprints. Alfred E. Little is granted US Patent 2,482,348 for a superior cam-operated locking mechanism, birthing the legendary, aircraft-grade aluminum Busch Pressman Model C and Model D cameras.",
     image: "/images/patent-screenshot.webp"
   }
 ];
