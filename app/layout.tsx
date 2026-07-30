@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lato, Geist } from "next/font/google"; 
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // 1. Configure your Body Font
@@ -31,6 +32,7 @@ export default function RootLayout({
       {/* Inject both distinct variables into the body global wrapper */}
       <body className={`${lato.variable} ${geistTitle.variable} antialiased font-body bg-museum-dark text-stone-300`}>
           {children}
+          <Analytics />
       </body>
     </html>
   );
