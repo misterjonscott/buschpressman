@@ -18,7 +18,7 @@ const forensicData = [
     id: "serial",
     title: "Serial No. 20247",
     visual: "A clear, lit shot of the stamped 20247 on the wood.",
-    caption: "Originally misread as an internal tracker, this 5-digit sequence continues directly from the leftover FR Reporter bodies [cite: 1]. It proves this chassis was a standard inherited production unit pulled from the line to serve as a factory test-bed.",
+    caption: "Originally misread as an internal tracker, this 5-digit sequence continues directly from the leftover FR Reporter bodies. It proves this chassis was a standard inherited production unit pulled from the line to serve as a factory test-bed.",
     icon: FileText,
     image: "/images/20247-detail.webp"
   },
