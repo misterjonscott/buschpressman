@@ -36,7 +36,7 @@ const Engineering = () => {
             <div>
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-stone-300">
                 <span className="text-xs font-mono tracking-widest text-text-aluminum uppercase">
-                  Evidence // Unit 2024
+                  Evidence // Unit 20247
                 </span>
                 <span className="text-xs font-mono px-2.5 py-1 bg-red-100 text-red-800 rounded font-bold">
                   FLAW DETECTED
@@ -46,10 +46,10 @@ const Engineering = () => {
                 The Wood Fails
               </h3>
               <p className="font-body text-stone-800 leading-relaxed text-base md:text-lg mb-6">
-                The extraneous screw holes inside Unit 2024&apos;s wooden chassis tell a story of frustration. The wood was too soft. As engineers attempted to mount complex, heavy-duty rotating backs and precise focusing tracks, the mahogany stripped and warped.
+                The extraneous screw holes inside Unit 7&apos;s wooden chassis tell a story of frustration. The wood was too soft. As engineers attempted to mount complex, heavy-duty rotating backs and precise focusing tracks, the mahogany stripped and warped.
               </p>
               <p className="font-body text-stone-800 leading-relaxed text-base md:text-lg">
-                Unit 2024 was the crucible that proved reverse-engineering the wooden Graflex was a dead end.
+                Unit 20247 was the crucible that proved reverse-engineering the wooden Graflex was a dead end.
               </p>
             </div>
             

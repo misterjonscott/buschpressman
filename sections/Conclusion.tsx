@@ -18,7 +18,7 @@ const Conclusion = () => {
         {/* Part 1: The Summary (Centered) */}
         <div className="max-w-4xl mx-auto text-center bg-museum-surface text-stone-100 p-10 md:p-14 rounded-2xl shadow-2xl border border-accent-mahogany/40 relative overflow-hidden">
           <div className="absolute -right-10 -bottom-10 text-stone-800 font-mono text-9xl opacity-25 select-none pointer-events-none">
-            2024
+            20247
           </div>
           <span className="text-xs uppercase tracking-[0.3em] text-accent-amber font-mono mb-4 block">
             Enduring Significance
