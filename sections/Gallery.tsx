@@ -50,7 +50,7 @@ const forensicData = [
     id: "scars",
     title: "The DIY Scars",
     visual: "A shot inside the wooden back showing the oversized, stripped screw holes.",
-    caption: "Initially suspected to be factory prototyping marks, further inspection reveals split wood from blindly driven screws. This highlights the importance of forensic rigor, definitively proving these are likely an owner's DIY alteration in effort to upgrade the camera back.",
+    caption: "Initially suspected to be factory prototyping marks, further inspection reveals split wood from blindly driven screws. This highlights the importance of forensic rigor, definitively proving these are likely an owner's DIY alteration in effort to upgrade the camera back.  The camera back was removed when it entered my collection, and because it may bear historical significance, I have preserved it as such.",
     icon: Camera,
     image: "/images/workbench-scars.webp"
   }
