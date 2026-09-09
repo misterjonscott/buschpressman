@@ -19,6 +19,10 @@ const geistTitle = Geist({
 export const metadata: Metadata = {
   title: "Busch Press-Man Unit 20247",
   description: "History of the Busch Press-Man Unit 20247, a unique camera chassis designed to compete with the Graflex Speed Graphic.",
+  metadataBase: new URL('https://buschpressman.com'),
+  alternates: {
+    canonical: '/', // This forces the canonical URL to use the metadataBase
+  },
 };
 
 export default function RootLayout({
