@@ -12,6 +12,7 @@ interface HeaderProps {
 
 const sectionLabels: Record<string, string> = {
   home: 'Home',
+  mystory: 'My Story',
   timeline: 'The Timeline',
   gallery: 'The Workbench',
   conclusion: 'The Legacy',
@@ -44,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) =>
     return null;
   }
 
-  const sections = ['home', 'timeline', 'gallery', 'conclusion', 'contact'];
+  const sections = ['home', 'mystory', 'timeline', 'gallery', 'conclusion', 'contact'];
 
   return (
     <header className="fixed top-0 w-full bg-background shadow-md z-10">

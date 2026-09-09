@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Focus, Search, Camera, FileText, ShieldAlert, Eye, Terminal } from 'lucide-react';
+import { Focus, Search, Camera, FileText, ShieldAlert, Eye, Aperture } from 'lucide-react';
 
 const forensicData = [
   {
@@ -53,6 +53,14 @@ const forensicData = [
     caption: "Initially suspected to be factory prototyping marks, further inspection reveals split wood from blindly driven screws. This highlights the importance of forensic rigor, definitively proving these are likely an owner's DIY alteration in effort to upgrade the camera back.  The camera back was removed when it entered my collection, and because it may bear historical significance, I have preserved it as such.",
     icon: Camera,
     image: "/images/workbench-scars.webp"
+  },
+  {
+    id: "optic",
+    title: "Wollensak f/6.3 Velostigmat",
+    visual: "A front-facing macro shot of the Wollensak lens and shutter housing.",
+    caption: "Press cameras demanded fast lenses to freeze action, making this slow f/6.3 Velostigmat highly unusual for fieldwork. This basic, inexpensive optic strongly suggests the camera served as a factory test-mule, used strictly by engineers to calibrate bellows extensions and focus rail alignment. Fittingly for its age and workbench history, the shutter is currently sticking and inoperable.",
+    icon: Aperture, /* Remember to add Aperture to your lucide-react imports */
+    image: "/images/lens-detail.webp" /* Update to your actual image path */
   }
 ];
 
