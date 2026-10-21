@@ -9,7 +9,6 @@ export default function MyStory() {
       
       <div className="container mx-auto px-4 max-w-4xl flex flex-col items-center justify-center pt-8">
         
-        {}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -24,7 +23,6 @@ export default function MyStory() {
           </p>
         </motion.div>
 
-        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +48,6 @@ export default function MyStory() {
           </div>
         </motion.div>
 
-        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,7 +73,6 @@ export default function MyStory() {
           </div>
         </motion.div>
 
-        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
