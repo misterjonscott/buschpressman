@@ -93,7 +93,7 @@ const CaseStudySkillable: React.FC = () => {
             <motion.div
               ref={refCompetitive}
               initial={{ opacity: 0 }}
-              animate={CompetitiveIsInView ? { opacity: 1 } : {}}
+              animate={CompetitiveIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
             >
               <Image
@@ -116,7 +116,7 @@ const CaseStudySkillable: React.FC = () => {
               <motion.div
                 ref={refDraft}
                 initial={{ opacity: 0 }}
-                animate={DraftisInView ? { opacity: 1 } : {}}
+                animate={DraftisInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="text-center"
               >
@@ -130,7 +130,7 @@ const CaseStudySkillable: React.FC = () => {
             </div>
             <motion.div
               initial={{ opacity: 0 }}
-              animate={DraftisInView ? { opacity: 1 } : {}}
+              animate={DraftisInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="text-center"
             >
@@ -158,7 +158,7 @@ const CaseStudySkillable: React.FC = () => {
               <motion.div
                 ref={refAdvancedFiltering}
                 initial={{ opacity: 0 }}
-                animate={AdvancedFilteringIsInView ? { opacity: 1 } : {}}
+                animate={AdvancedFilteringIsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="text-center my-4"
               >
@@ -184,7 +184,7 @@ const CaseStudySkillable: React.FC = () => {
               </div>
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={AdvancedFilteringIsInView ? { opacity: 1 } : {}}
+                animate={AdvancedFilteringIsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="text-center my-4"
               >
@@ -216,7 +216,7 @@ const CaseStudySkillable: React.FC = () => {
               <motion.div
                 ref={refAdvancedFiltering2}
                 initial={{ opacity: 0 }}
-                animate={AdvancedFiltering2IsInView ? { opacity: 1 } : {}}
+                animate={AdvancedFiltering2IsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="text-center my-4"
               >
@@ -240,7 +240,7 @@ const CaseStudySkillable: React.FC = () => {
               <motion.div
                 ref={refAdvancedFiltering3}
                 initial={{ opacity: 0 }}
-                animate={AdvancedFiltering3IsInView ? { opacity: 1 } : {}}
+                animate={AdvancedFiltering3IsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="text-center my-4"
               >
@@ -265,7 +265,7 @@ const CaseStudySkillable: React.FC = () => {
               <motion.div
                 ref={refAdvancedFiltering4}
                 initial={{ opacity: 0 }}
-                animate={AdvancedFiltering4IsInView ? { opacity: 1 } : {}}
+                animate={AdvancedFiltering4IsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="text-center my-4"
               >
@@ -286,7 +286,7 @@ const CaseStudySkillable: React.FC = () => {
               <motion.div
                 ref={refAdvancedFiltering5}
                 initial={{ opacity: 0 }}
-                animate={AdvancedFiltering5IsInView ? { opacity: 1 } : {}}
+                animate={AdvancedFiltering5IsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="text-center my-4"
               >
@@ -311,7 +311,7 @@ const CaseStudySkillable: React.FC = () => {
           <motion.div
             ref={refCardDesign}
             initial={{ opacity: 0 }}
-            animate={CardDesignisInView ? { opacity: 1 } : {}}
+            animate={CardDesignisInView ? { opacity: 1 } : undefined}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
@@ -330,7 +330,7 @@ const CaseStudySkillable: React.FC = () => {
             <motion.div
               ref={refCardVariations}
               initial={{ opacity: 0 }}
-              animate={CardVariationsIsInView ? { opacity: 1 } : {}}
+              animate={CardVariationsIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="space-y-4"
             >
@@ -356,7 +356,7 @@ const CaseStudySkillable: React.FC = () => {
             <motion.div
               ref={refGridAndList}
               initial={{ opacity: 0 }}
-              animate={GridAndListisInView ? { opacity: 1 } : {}}
+              animate={GridAndListisInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
             >
               <Image
@@ -371,7 +371,7 @@ const CaseStudySkillable: React.FC = () => {
             </div>
             <motion.div
               initial={{ opacity: 0 }}
-              animate={GridAndListisInView ? { opacity: 1 } : {}}
+              animate={GridAndListisInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="text-center"
             >
@@ -396,7 +396,7 @@ const CaseStudySkillable: React.FC = () => {
             <motion.div
               ref={refConclusion}
               initial={{ opacity: 0 }}
-              animate={ConclusionIsInView ? { opacity: 1 } : {}}
+              animate={ConclusionIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
             >
               <Image

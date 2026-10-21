@@ -86,7 +86,7 @@ const CaseStudyLevelUp: React.FC = () => {
             <motion.div
               ref={refUserFlowDiagram}
               initial={{ opacity: 0 }}
-              animate={userFlowDiagramIsInView ? { opacity: 1 } : {}}
+              animate={userFlowDiagramIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative w-full max-w-4xl aspect-video"
             >
@@ -106,7 +106,7 @@ const CaseStudyLevelUp: React.FC = () => {
             <motion.div
               ref={refComponentNotation}
               initial={{ opacity: 0 }}
-              animate={componentNotationIsInView ? { opacity: 1 } : {}}
+              animate={componentNotationIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-square"
             >
@@ -135,7 +135,7 @@ const CaseStudyLevelUp: React.FC = () => {
             <motion.div
               ref={refDeterminingMonthlyIncome}
               initial={{ opacity: 0 }}
-              animate={determiningMonthlyIncomeIsInView ? { opacity: 1 } : {}}
+              animate={determiningMonthlyIncomeIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative w-full max-w-4xl aspect-video"
             >
@@ -152,7 +152,7 @@ const CaseStudyLevelUp: React.FC = () => {
             <motion.div
               ref={refExploreBudgetTrackingOptions}
               initial={{ opacity: 0 }}
-              animate={exploreBudgetTrackingOptionsIsInView ? { opacity: 1 } : {}}
+              animate={exploreBudgetTrackingOptionsIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative w-full max-w-4xl aspect-video"
             >
@@ -169,7 +169,7 @@ const CaseStudyLevelUp: React.FC = () => {
             <motion.div
               ref={refClassifyingNeedsVsWants}
               initial={{ opacity: 0 }}
-              animate={classifyingNeedsVsWantsIsInView ? { opacity: 1 } : {}}
+              animate={classifyingNeedsVsWantsIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative w-full max-w-4xl aspect-video"
             >
@@ -186,7 +186,7 @@ const CaseStudyLevelUp: React.FC = () => {
             <motion.div
               ref={refListingYourGoals}
               initial={{ opacity: 0 }}
-              animate={listingYourGoalsIsInView ? { opacity: 1 } : {}}
+              animate={listingYourGoalsIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative w-full max-w-4xl aspect-video"
             >

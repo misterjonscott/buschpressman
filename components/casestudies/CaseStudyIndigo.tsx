@@ -83,7 +83,7 @@ const CaseStudyIndigo: React.FC = () => {
           <motion.div
             ref={refDashboardBeforeAfter}
             initial={{ opacity: 0 }}
-            animate={dashboardBeforeAfterIsInView ? { opacity: 1 } : {}}
+            animate={dashboardBeforeAfterIsInView ? { opacity: 1 } : undefined}
             transition={{ duration: 0.8 }}
             className="flex justify-center"
           >
@@ -145,7 +145,7 @@ const CaseStudyIndigo: React.FC = () => {
             <motion.div
               ref={refReducedClutter}
               initial={{ opacity: 0 }}
-              animate={reducedClutterIsInView ? { opacity: 1 } : {}}
+              animate={reducedClutterIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-square"
             >
@@ -186,7 +186,7 @@ const CaseStudyIndigo: React.FC = () => {
             <motion.div
               ref={refFilteringMenu}
               initial={{ opacity: 0 }}
-              animate={filteringMenuIsInView ? { opacity: 1 } : {}}
+              animate={filteringMenuIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-square"
             >
@@ -218,7 +218,7 @@ const CaseStudyIndigo: React.FC = () => {
             <motion.div
               ref={refDashboardConclusion}
               initial={{ opacity: 0 }}
-              animate={dashboardConclusionIsInView ? { opacity: 1 } : {}}
+              animate={dashboardConclusionIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
@@ -250,7 +250,7 @@ const CaseStudyIndigo: React.FC = () => {
             <motion.div
               ref={refLotsAndLevels}
               initial={{ opacity: 0 }}
-              animate={lotsAndLevelsIsInView ? { opacity: 1 } : {}}
+              animate={lotsAndLevelsIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
@@ -287,7 +287,7 @@ const CaseStudyIndigo: React.FC = () => {
             <motion.div
               ref={refUserManagement}
               initial={{ opacity: 0 }}
-              animate={userManagementIsInView ? { opacity: 1 } : {}}
+              animate={userManagementIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
@@ -316,7 +316,7 @@ const CaseStudyIndigo: React.FC = () => {
             <motion.div
               ref={refBranding}
               initial={{ opacity: 0 }}
-              animate={brandingIsInView ? { opacity: 1 } : {}}
+              animate={brandingIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >

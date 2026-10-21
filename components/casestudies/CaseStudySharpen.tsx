@@ -83,7 +83,7 @@ const CaseStudySharpen: React.FC = () => {
             <motion.div
               ref={refRequirementsGathering}
               initial={{ opacity: 0 }}
-              animate={requirementsGatheringIsInView ? { opacity: 1 } : {}}
+              animate={requirementsGatheringIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-square"
             >
@@ -114,7 +114,7 @@ const CaseStudySharpen: React.FC = () => {
             <motion.div
               ref={refDefiningTheFlow}
               initial={{ opacity: 0 }}
-              animate={definingTheFlowIsInView ? { opacity: 1 } : {}}
+              animate={definingTheFlowIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
@@ -139,7 +139,7 @@ const CaseStudySharpen: React.FC = () => {
             <motion.div
               ref={refReportingMadeSimple}
               initial={{ opacity: 0 }}
-              animate={reportingMadeSimpleIsInView ? { opacity: 1 } : {}}
+              animate={reportingMadeSimpleIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
@@ -164,7 +164,7 @@ const CaseStudySharpen: React.FC = () => {
             <motion.div
               ref={refWaveformAnalytics}
               initial={{ opacity: 0 }}
-              animate={waveformAnalyticsIsInView ? { opacity: 1 } : {}}
+              animate={waveformAnalyticsIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-video"
             >
