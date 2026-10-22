@@ -123,7 +123,7 @@ const CaseStudyGeofeedia: React.FC = () => {
               <motion.div
                 ref={refDataManager}
                 initial={{ opacity: 0 }}
-                animate={dataManagerIsInView ? { opacity: 1 } : {}}
+                animate={dataManagerIsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="relative aspect-square"
               >
@@ -144,7 +144,7 @@ const CaseStudyGeofeedia: React.FC = () => {
             <motion.div
               ref={refAccountManager}
               initial={{ opacity: 0 }}
-              animate={accountManagerIsInView ? { opacity: 1 } : {}}
+              animate={accountManagerIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-square md:order-first"
             >
@@ -188,7 +188,7 @@ const CaseStudyGeofeedia: React.FC = () => {
             <motion.div
               ref={refAccountImpersonation}
               initial={{ opacity: 0 }}
-              animate={accountImpersonationIsInView ? { opacity: 1 } : {}}
+              animate={accountImpersonationIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-square"
             >
@@ -216,7 +216,7 @@ const CaseStudyGeofeedia: React.FC = () => {
           <div ref={refUsersAndRoles} className="grid md:grid-cols-2 gap-8">
             <motion.div
               initial={{ opacity: 0 }}
-              animate={usersAndRolesIsInView ? { opacity: 1 } : {}}
+              animate={usersAndRolesIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-square"
             >
@@ -229,7 +229,7 @@ const CaseStudyGeofeedia: React.FC = () => {
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
-              animate={usersAndRolesIsInView ? { opacity: 1 } : {}}
+              animate={usersAndRolesIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-square"
             >
@@ -262,7 +262,7 @@ const CaseStudyGeofeedia: React.FC = () => {
           <motion.div
             ref={refSharing}
             initial={{ opacity: 0 }}
-            animate={sharingIsInView ? { opacity: 1 } : {}}
+            animate={sharingIsInView ? { opacity: 1 } : undefined}
             transition={{ duration: 0.8 }}
             className="flex justify-center"
           >

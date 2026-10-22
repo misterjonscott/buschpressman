@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AvatarCircles from "@/components/avatarcircles";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import Image from "next/image";
 import { motion, useScroll } from "framer-motion";
 
 const recommendations = [

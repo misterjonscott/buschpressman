@@ -19,6 +19,8 @@ const sectionLabels: Record<string, string> = {
   contact: 'Contact',
 };
 
+const sections = ['home', 'mystory', 'timeline', 'gallery', 'conclusion', 'contact'];
+
 const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) => {
   const [isClient, setIsClient] = useState(false);
   const [isOpen, setIsOpen] = useState(false); // State for mobile menu
@@ -44,8 +46,6 @@ const Header: React.FC<HeaderProps> = ({ currentSection, setCurrentSection }) =>
   if (!isClient) {
     return null;
   }
-
-  const sections = ['home', 'mystory', 'timeline', 'gallery', 'conclusion', 'contact'];
 
   return (
     <header className="fixed top-0 w-full bg-background shadow-md z-10">

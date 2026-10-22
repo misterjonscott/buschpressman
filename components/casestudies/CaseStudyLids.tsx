@@ -105,7 +105,7 @@ const CaseStudyLids: React.FC = () => {
               <motion.div
                 ref={refCheckoutProcess01}
                 initial={{ opacity: 0 }}
-                animate={checkoutProcess01IsInView ? { opacity: 1 } : {}}
+                animate={checkoutProcess01IsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="relative aspect-square"
               >
@@ -127,7 +127,7 @@ const CaseStudyLids: React.FC = () => {
               <motion.div
                 ref={refCheckoutProcess02}
                 initial={{ opacity: 0 }}
-                animate={checkoutProcess02IsInView ? { opacity: 1 } : {}}
+                animate={checkoutProcess02IsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="relative aspect-square"
               >
@@ -148,7 +148,7 @@ const CaseStudyLids: React.FC = () => {
               <motion.div
                 ref={refCheckoutProcess03}
                 initial={{ opacity: 0 }}
-                animate={checkoutProcess03IsInView ? { opacity: 1 } : {}}
+                animate={checkoutProcess03IsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="relative aspect-square"
               >
@@ -170,7 +170,7 @@ const CaseStudyLids: React.FC = () => {
               <motion.div
                 ref={refCheckoutProcess04}
                 initial={{ opacity: 0 }}
-                animate={checkoutProcess04IsInView ? { opacity: 1 } : {}}
+                animate={checkoutProcess04IsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="relative aspect-square"
               >
@@ -191,7 +191,7 @@ const CaseStudyLids: React.FC = () => {
               <motion.div
                 ref={refCheckoutProcess05}
                 initial={{ opacity: 0 }}
-                animate={checkoutProcess05IsInView ? { opacity: 1 } : {}}
+                animate={checkoutProcess05IsInView ? { opacity: 1 } : undefined}
                 transition={{ duration: 0.8 }}
                 className="relative aspect-square"
               >
@@ -217,7 +217,7 @@ const CaseStudyLids: React.FC = () => {
             <motion.div
               ref={refShoppingCart}
               initial={{ opacity: 0 }}
-              animate={shoppingCartIsInView ? { opacity: 1 } : {}}
+              animate={shoppingCartIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-square"
             >
@@ -253,7 +253,7 @@ const CaseStudyLids: React.FC = () => {
             <motion.div
               ref={refBuildingBlocks}
               initial={{ opacity: 0 }}
-              animate={buildingBlocksIsInView ? { opacity: 1 } : {}}
+              animate={buildingBlocksIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative aspect-[3/4]"
             >
@@ -335,7 +335,7 @@ const CaseStudyLids: React.FC = () => {
             <motion.div
               ref={refFanShops}
               initial={{ opacity: 0 }}
-              animate={fanShopsIsInView ? { opacity: 1 } : {}}
+              animate={fanShopsIsInView ? { opacity: 1 } : undefined}
               transition={{ duration: 0.8 }}
               className="relative w-full max-w-4xl aspect-square"
             >
