@@ -28,6 +28,8 @@ const recommendations = [
   },
 ];
 
+const STARS = Array.from({ length: 5 });
+
 const Recommendations = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -114,7 +116,7 @@ const Recommendations = () => {
                   <p className="text-sm text-gray-500">{recommendations[currentIndex].position}</p>
                 </div>
                 <div className="flex justify-center mt-2 mb-3">
-                  {[...Array(5)].map((_, i) => (
+                  {STARS.map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
@@ -145,7 +147,7 @@ const Recommendations = () => {
                     <p className="text-sm text-gray-500">{rec.position}</p>
                   </div>
                   <div className="flex justify-center mt-2 mb-3">
-                    {[...Array(5)].map((_, i) => (
+                    {STARS.map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
